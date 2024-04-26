@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class Girder:
     GlobalID = None # STR // 0,1
     PieceCount = None # INT // 0,1
@@ -389,3 +392,80 @@ class Girder:
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", PieceCount: " + str(self.PieceCount) + ", X: " + str(self.X) + ", Y: " + str(self.Y) + ", Z: " + str(self.Z) + ", GirderName: " + str(self.GirderName) + ", Length: " + str(self.Length) + ", AngleToX: " + str(self.AngleToX) + ", NoAutoProd: " + str(self.NoAutoProd) + ", Height: " + str(self.Height) + ", TopExcess: " + str(self.TopExcess) + ", BottomExcess: " + str(self.BottomExcess) + ", Weight: " + str(self.Weight) + ", TopFlangeDiameter: " + str(self.TopFlangeDiameter) + ", BottomFlangeDiameter: " + str(self.BottomFlangeDiameter) + ", GirderType: " + str(self.GirderType) + ", MountingType: " + str(self.MountingType) + ", ArticleNo: " + str(self.ArticleNo) + ", Machine: " + str(self.Machine) + ", Period: " + str(self.Period) + ", PeriodOffset: " + str(self.PeriodOffset) + ", Width: " + str(self.Width) + ", AnchorBar: " + str(self.AnchorBar) + ", GirderExt: " + str(self.GirderExt) + ", Section: " + str(self.Section)
 
+    def __xml__(self):
+        Girder = ET.Element("Girder")
+        if self.GlobalID is not None:
+            Girder.set("GlobalID",self.GlobalID)
+        if self.PieceCount is not None:
+            PieceCount = ET.SubElement(Girder,"PieceCount")
+            PieceCount.text = str(self.PieceCount)
+        if self.X is not None:
+            X = ET.SubElement(Girder,"X")
+            X.text = str(self.X)
+        if self.Y is not None:
+            Y = ET.SubElement(Girder,"Y")
+            Y.text = str(self.Y)
+        if self.Z is not None:
+            Z = ET.SubElement(Girder,"Z")
+            Z.text = str(self.Z)
+        if self.GirderName is not None:
+            GirderName = ET.SubElement(Girder,"GirderName")
+            GirderName.text = str(self.GirderName)
+        if self.Length is not None:
+            Length = ET.SubElement(Girder,"Length")
+            Length.text = str(self.Length)
+        if self.AngleToX is not None:
+            AngleToX = ET.SubElement(Girder,"AngleToX")
+            AngleToX.text = str(self.AngleToX)
+        if self.NoAutoProd is not None:
+            NoAutoProd = ET.SubElement(Girder,"NoAutoProd")
+            NoAutoProd.text = str(self.NoAutoProd)
+        if self.Height is not None:
+            Height = ET.SubElement(Girder,"Height")
+            Height.text = str(self.Height)
+        if self.TopExcess is not None:
+            TopExcess = ET.SubElement(Girder,"TopExcess")
+            TopExcess.text = str(self.TopExcess)
+        if self.BottomExcess is not None:
+            BottomExcess = ET.SubElement(Girder,"BottomExcess")
+            BottomExcess.text = str(self.BottomExcess)
+        if self.Weight is not None:
+            Weight = ET.SubElement(Girder,"Weight")
+            Weight.text = str(self.Weight)
+        if self.TopFlangeDiameter is not None:
+            TopFlangeDiameter = ET.SubElement(Girder,"TopFlangeDiameter")
+            TopFlangeDiameter.text = str(self.TopFlangeDiameter)
+        if self.BottomFlangeDiameter is not None:
+            BottomFlangeDiameter = ET.SubElement(Girder,"BottomFlangeDiameter")
+            BottomFlangeDiameter.text = str(self.BottomFlangeDiameter)
+        if self.GirderType is not None:
+            GirderType = ET.SubElement(Girder,"GirderType")
+            GirderType.text = str(self.GirderType)
+        if self.MountingType is not None:
+            MountingType = ET.SubElement(Girder,"MountingType")
+            MountingType.text = str(self.MountingType)
+        if self.ArticleNo is not None:
+            ArticleNo = ET.SubElement(Girder,"ArticleNo")
+            ArticleNo.text = str(self.ArticleNo)
+        if self.Machine is not None:
+            Machine = ET.SubElement(Girder,"Machine")
+            Machine.text = str(self.Machine)
+        if self.Period is not None:
+            Period = ET.SubElement(Girder,"Period")
+            Period.text = str(self.Period)
+        if self.PeriodOffset is not None:
+            PeriodOffset = ET.SubElement(Girder,"PeriodOffset")
+            PeriodOffset.text = str(self.PeriodOffset)
+        if self.Width is not None:
+            Width = ET.SubElement(Girder,"Width")
+            Width.text = str(self.Width)
+        for AnchorBar in self.AnchorBar:
+            AnchorBar_ = ET.SubElement(Girder, "AnchorBar")
+            AnchorBar_.text = AnchorBar
+        for GirderExt in self.GirderExt:
+            GirderExt_ = ET.SubElement(Girder, "GirderExt")
+            GirderExt_.text = GirderExt
+        for Section in self.Section:
+            Section_ = ET.SubElement(Girder, "Section")
+            Section_.text = Section
+        return Girder

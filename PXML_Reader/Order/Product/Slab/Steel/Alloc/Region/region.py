@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class Region:
     GlobalID = None # STR // 0,1
     IntervalCount = None # INT // 0,1
@@ -109,3 +112,23 @@ class Region:
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", IntervalCount: " + str(self.IntervalCount) + ", Pitch: " + str(self.Pitch) + ", IncludeBegin: " + str(self.IncludeBegin) + ", IncludeEnd: " + str(self.IncludeEnd) + ", RefIndex: " + str(self.RefIndex)
 
+    def __xml__(self):
+        Region = ET.Element("Region")
+        if self.GlobalID is not None:
+            Region.set("GlobalID",self.GlobalID)
+        if self.IntervalCount is not None:
+            IntervalCount = ET.SubElement(Region,"IntervalCount")
+            IntervalCount.text = str(self.IntervalCount)
+        if self.Pitch is not None:
+            Pitch = ET.SubElement(Region,"Pitch")
+            Pitch.text = str(self.Pitch)
+        if self.IncludeBegin is not None:
+            IncludeBegin = ET.SubElement(Region,"IncludeBegin")
+            IncludeBegin.text = str(self.IncludeBegin)
+        if self.IncludeEnd is not None:
+            IncludeEnd = ET.SubElement(Region,"IncludeEnd")
+            IncludeEnd.text = str(self.IncludeEnd)
+        if self.RefIndex is not None:
+            RefIndex = ET.SubElement(Region,"RefIndex")
+            RefIndex.text = str(self.RefIndex)
+        return Region

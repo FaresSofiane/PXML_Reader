@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class Steel:
     GlobalID = None # STR // 0,1
     Type = None # STR // 0,1
@@ -428,4 +431,101 @@ class Steel:
 
     def add_SteelExt(self, SteelExt):
         self.SteelExt.append(SteelExt)
+
+    def __str__(self):
+        return "GlobalID: " + str(self.GlobalID) + ", Type: " + str(self.Type) + ", X: " + str(self.X) + ", Y: " + str(self.Y) + ", Z: " + str(self.Z) + ", RotX: " + str(self.RotX) + ", RotY: " + str(self.RotY) + ", RotZ: " + str(self.RotZ) + ", ToTurn: " + str(self.ToTurn) + ", StopOnTurningSide: " + str(self.StopOnTurningSide) + ", Name: " + str(self.Name) + ", GenericInfo01: " + str(self.GenericInfo01) + ", GenericInfo02: " + str(self.GenericInfo02) + ", GenericInfo03: " + str(self.GenericInfo03) + ", GenericInfo04: " + str(self.GenericInfo04) + ", GenericInfo05: " + str(self.GenericInfo05) + ", GenericInfo06: " + str(self.GenericInfo06) + ", MeshType: " + str(self.MeshType) + ", WeldingDensity: " + str(self.WeldingDensity) + ", BorderStrength: " + str(self.BorderStrength) + ", ProdX: " + str(self.ProdX) + ", ProdY: " + str(self.ProdY) + ", ProdZ: " + str(self.ProdZ) + ", ProdRotX: " + str(self.ProdRotX) + ", ProdRotY: " + str(self.ProdRotY) + ", ProdRotZ: " + str(self.ProdRotZ) + ", Layer: " + str(self.Layer) + ", ObjectID: " + str(self.ObjectID) + ", Bar: " + str(self.Bar) + ", Girder: " + str(self.Girder) + ", Alloc: " + str(self.Alloc) + ", SteelExt: " + str(self.SteelExt)
+
+    def __xml__(self):
+        Steel = ET.Element("Steel")
+        if self.GlobalID is not None:
+            Steel.set("GlobalID",self.GlobalID)
+        if self.Type is not None:
+            Steel.set("Type",self.Type)
+        if self.X is not None:
+            X = ET.SubElement(Steel,"X")
+            X.text = str(self.X)
+        if self.Y is not None:
+            Y = ET.SubElement(Steel,"Y")
+            Y.text = str(self.Y)
+        if self.Z is not None:
+            Z = ET.SubElement(Steel,"Z")
+            Z.text = str(self.Z)
+        if self.RotX is not None:
+            RotX = ET.SubElement(Steel,"RotX")
+            RotX.text = str(self.RotX)
+        if self.RotY is not None:
+            RotY = ET.SubElement(Steel,"RotY")
+            RotY.text = str(self.RotY)
+        if self.RotZ is not None:
+            RotZ = ET.SubElement(Steel,"RotZ")
+            RotZ.text = str(self.RotZ)
+        if self.ToTurn is not None:
+            ToTurn = ET.SubElement(Steel,"ToTurn")
+            ToTurn.text = str(self.ToTurn)
+        if self.StopOnTurningSide is not None:
+            StopOnTurningSide = ET.SubElement(Steel,"StopOnTurningSide")
+            StopOnTurningSide.text = str(self.StopOnTurningSide)
+        if self.Name is not None:
+            Name = ET.SubElement(Steel,"Name")
+            Name.text = str(self.Name)
+        if self.GenericInfo01 is not None:
+            GenericInfo01 = ET.SubElement(Steel,"GenericInfo01")
+            GenericInfo01.text = str(self.GenericInfo01)
+        if self.GenericInfo02 is not None:
+            GenericInfo02 = ET.SubElement(Steel,"GenericInfo02")
+            GenericInfo02.text = str(self.GenericInfo02)
+        if self.GenericInfo03 is not None:
+            GenericInfo03 = ET.SubElement(Steel,"GenericInfo03")
+            GenericInfo03.text = str(self.GenericInfo03)
+        if self.GenericInfo04 is not None:
+            GenericInfo04 = ET.SubElement(Steel,"GenericInfo04")
+            GenericInfo04.text = str(self.GenericInfo04)
+        if self.GenericInfo05 is not None:
+            GenericInfo05 = ET.SubElement(Steel,"GenericInfo05")
+            GenericInfo05.text = str(self.GenericInfo05)
+        if self.GenericInfo06 is not None:
+            GenericInfo06 = ET.SubElement(Steel,"GenericInfo06")
+            GenericInfo06.text = str(self.GenericInfo06)
+        if self.MeshType is not None:
+            MeshType = ET.SubElement(Steel,"MeshType")
+            MeshType.text = str(self.MeshType)
+        if self.WeldingDensity is not None:
+            WeldingDensity = ET.SubElement(Steel,"WeldingDensity")
+            WeldingDensity.text = str(self.WeldingDensity)
+        if self.BorderStrength is not None:
+            BorderStrength = ET.SubElement(Steel,"BorderStrength")
+            BorderStrength.text = str(self.BorderStrength)
+        if self.ProdX is not None:
+            ProdX = ET.SubElement(Steel,"ProdX")
+            ProdX.text = str(self.ProdX)
+        if self.ProdY is not None:
+            ProdY = ET.SubElement(Steel,"ProdY")
+            ProdY.text = str(self.ProdY)
+        if self.ProdZ is not None:
+            ProdZ = ET.SubElement(Steel,"ProdZ")
+            ProdZ.text = str(self.ProdZ)
+        if self.ProdRotX is not None:
+            ProdRotX = ET.SubElement(Steel,"ProdRotX")
+            ProdRotX.text = str(self.ProdRotX)
+        if self.ProdRotY is not None:
+            ProdRotY = ET.SubElement(Steel,"ProdRotY")
+            ProdRotY.text = str(self.ProdRotY)
+        if self.ProdRotZ is not None:
+            ProdRotZ = ET.SubElement(Steel,"ProdRotZ")
+            ProdRotZ.text = str(self.ProdRotZ)
+        if self.Layer is not None:
+            Layer = ET.SubElement(Steel,"Layer")
+            Layer.text = str(self.Layer)
+        if self.ObjectID is not None:
+            ObjectID = ET.SubElement(Steel,"ObjectID")
+            ObjectID.text = str(self.ObjectID)
+        for Bar in self.Bar:
+            Steel.append(Bar.__xml__())
+        for Girder in self.Girder:
+            Steel.append(Girder.__xml__())
+        for Alloc in self.Alloc:
+            Steel.append(Alloc.__xml__())
+        for SteelExt in self.SteelExt:
+            Steel.append(SteelExt.__xml__())
+        return Steel
 

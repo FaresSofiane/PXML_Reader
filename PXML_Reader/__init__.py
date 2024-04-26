@@ -25,6 +25,9 @@ from .Order.Product.Slab.Steel.Girder.AnchorBar import anchorbar
 from .Order.Product.Slab.Steel.Girder.GirderExt import girderext
 from .Order.Product.Slab.Steel.Girder.Section import section
 from .Order.Product.Slab.Steel.SteelExt import steelext
+from .Feedback import feedback
+from .Feedback.Description import description
+from .Feedback.FbVal import fbval
 
 
 # Développé par Sofiane Fares
@@ -56,7 +59,10 @@ class pxml:
                 Mode = []
                 MajorVersion = root[ae].find(ns + "MajorVersion").text
                 MinorVersion = root[ae].find(ns + "MinorVersion").text
-                Comment = root[ae].find(ns + "Comment").text
+                if root[ae].find(ns + "Comment") is not None:
+                    Comment = root[ae].find(ns + "Comment").text
+                else:
+                    Comment = None
                 if root[ae].find(ns + "ConvertConventions") is not None:
                     ConvertConventions = root[ae].find(ns + "ConvertConventions").text
                 else:
@@ -151,7 +157,7 @@ class pxml:
                                 ))
                             temp_Outline.append(outline.Outline(
                                 GlobalID=d.get("GlobalID"),
-                                Type=d.find(ns + "Type").text if d.find(ns + "Type") is not None else None,
+                                Type=d.get("Type"),
                                 X=d.find(ns + "X").text if d.find(ns + "X") is not None else None,
                                 Y=d.find(ns + "Y").text if d.find(ns + "Y") is not None else None,
                                 Z=d.find(ns + "Z").text if d.find(ns + "Z") is not None else None,
@@ -235,6 +241,7 @@ class pxml:
                                     ))
 
                                 temp_Bar.append(bar.Bar(GlobalID=e.get("GlobalID"),
+                                                        ShapeMode=e.find(ns + "ShapeMode").text if e.find( ns + "ShapeMode") is not None else None,
                                                         ReinforcementType=e.find(
                                                             ns + "ReinforcementType").text if e.find(
                                                             ns + "ReinforcementType") is not None else None,
@@ -459,8 +466,8 @@ class pxml:
                                                        ns + "SlabNo") is not None else None,
                                                    PartType=c.find(ns + "PartType").text if c.find(
                                                        ns + "PartType") is not None else None,
-                                                   ProductAddition=c.find(ns + "ProductAddition").text if c.find(
-                                                       ns + "ProductAddition") is not None else None,
+                                                   ProductionAddition=c.find(ns + "ProductionAddition").text if c.find(
+                                                       ns + "ProductionAddition") is not None else None,
                                                    ProductionWay=c.find(ns + "ProductionWay").text if c.find(
                                                        ns + "ProductionWay") is not None else None,
                                                    NumberOfMeansOfTransport=c.find(
@@ -717,6 +724,43 @@ class pxml:
                                 OrderInfo=[],
                                 Product=temp_Product))
 
+            elif a == "Feedback":
+                GlobalID = root[ae].get("GlobalID")
+                ItemType = root[ae].get("ItemType")
+                temp_description = []
+                temp_FbVal = []
+
+                for f in root[ae].findall(ns + "Description"):
+                    temp_description.append(description.Description(Culture=f.get("Culture"),
+                                                                    Text=f.get("Text")))
+
+                for f in root[ae].findall(ns + "FbVal"):
+                    temp_FbVal.append(fbval.FbVal(T=f.get("T"),
+                                                V=f.get("V")))
+
+                self.Feedback.append(feedback.Feedback(GlobalID=GlobalID,ItemType=ItemType,
+                                                       MessageType=(root[ae].find(ns + "MessageType").text if root[ae].find(
+                                                           ns + "MessageType") is not None else None),
+                                                       Code=(root[ae].find(ns + "Code").text if root[ae].find(
+                                                           ns + "Code") is not None else None),
+                                                       InfoValue=(root[ae].find(ns + "InfoValue").text if root[ae].find(
+                                                           ns + "InfoValue") is not None else None),
+                                                       PieceCount=(root[ae].find(ns + "PieceCount").text if root[ae].find(
+                                                           ns + "PieceCount") is not None else None),
+                                                       MaterialType=(root[ae].find(ns + "MaterialType").text if root[ae].find(
+                                                           ns + "MaterialType") is not None else None),
+                                                       MaterialBatch=(root[ae].find(ns + "MaterialBatch").text if root[ae].find(
+                                                           ns + "MaterialBatch") is not None else None),
+                                                       MaterialWeight=(root[ae].find(ns + "MaterialWeight").text if root[ae].find(
+                                                           ns + "MaterialWeight") is not None else None),
+                                                       ProdDate=(root[ae].find(ns + "ProdDate").text if root[ae].find(
+                                                           ns + "ProdDate") is not None else None),
+                                                       Machine=(root[ae].find(ns + "Machine").text if root[ae].find(
+                                                           ns + "Machine") is not None else None),
+                                                       Description=temp_description, FbVal=temp_FbVal))
+
+
+
         if self.DocInfo is None:
             raise ValueError("No DocInfo found in PXML file. Read https://www.pxml.eu/PXML-Specification-1.3-EN.pdf")
 
@@ -740,7 +784,7 @@ class pxml:
         def pretty_print_xml_elementtree(xml_string):
             root = ET.fromstring(xml_string)
             indent(root)
-            pretty_xml = ET.tostring(root, encoding="unicode")
+            pretty_xml = ET.tostring(root, encoding="unicode", xml_declaration=True)
             return pretty_xml
 
         PXML = ET.Element("PXML_Document")
@@ -748,7 +792,9 @@ class pxml:
         PXML.append(self.DocInfo.__xml__())
         for Order in self.Order:
             PXML.append(Order.__xml__())
+        for Feedback in self.Feedback:
+            PXML.append(Feedback.__xml__())
 
-        xml_str = ET.tostring(PXML, encoding="unicode", method="xml")
+        xml_str = ET.tostring(PXML)
 
         return pretty_print_xml_elementtree(xml_str).replace("ns0:", "").replace(":ns0", "")

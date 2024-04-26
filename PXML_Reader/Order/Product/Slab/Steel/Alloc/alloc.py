@@ -1,4 +1,5 @@
 from .Region.region import Region
+import xml.etree.ElementTree as ET
 
 class Alloc:
     GlobalID = None # STR // 0,1
@@ -51,4 +52,16 @@ class Alloc:
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", Type: " + str(self.Type) + ", GuildingBar: " + str(self.GuildingBar) + ", Region: " + str(self.Region)
 
+    def __xml__(self):
+        Alloc = ET.Element('Alloc')
+        if self.GlobalID is not None:
+            Alloc.set('GlobalID', self.GlobalID)
+        if self.Type is not None:
+            Alloc.set('Type', self.Type)
+        if self.GuildingBar is not None:
+            GuildingBar = ET.SubElement(Alloc, 'GuildingBar')
+            GuildingBar.text = str(self.GuildingBar)
+        for Region in self.Region:
+            Alloc.append(Region.__xml__())
+        return Alloc
 

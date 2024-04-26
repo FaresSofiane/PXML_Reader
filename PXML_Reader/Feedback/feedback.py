@@ -1,3 +1,5 @@
+import xml.etree.ElementTree as ET
+
 class Feedback:
     GlobalID = None # STR // 0,1
     ItemType= None # STR // 0,1
@@ -11,9 +13,9 @@ class Feedback:
     ProdDate = None # STR // 0,1
     Machine = None # STR // 0,1
     Description = [] # Description // n,n
-    FbValue = [] # FbValue // n,n
+    FbVal = [] # FbVal // n,n
 
-    def __init__(self, GlobalID: str = None, ItemType: str = None, MessageType: str = None, Code: str = None, InfoValue: str = None, PieceCount: int = None, MaterialType: str = None, MaterialBatch: str = None, MaterialWeight: float = None, ProdDate: str = None, Machine: str = None, Description: list = [], FbValue: list = []):
+    def __init__(self, GlobalID: str = None, ItemType: str = None, MessageType: str = None, Code: str = None, InfoValue: str = None, PieceCount: int = None, MaterialType: str = None, MaterialBatch: str = None, MaterialWeight: float = None, ProdDate: str = None, Machine: str = None, Description: list = [], FbVal: list = []):
         self.GlobalID = GlobalID
         self.ItemType = ItemType
         self.MessageType = MessageType
@@ -45,7 +47,7 @@ class Feedback:
         self.ProdDate = ProdDate
         self.Machine = Machine
         self.Description = Description
-        self.FbValue = FbValue
+        self.FbVal = FbVal
 
     def get_GlobalID(self):
         return self.GlobalID
@@ -83,8 +85,8 @@ class Feedback:
     def get_Description(self):
         return self.Description
 
-    def get_FbValue(self):
-        return self.FbValue
+    def get_FbVal(self):
+        return self.FbVal
 
     def set_GlobalID(self, GlobalID: str):
         self.GlobalID = GlobalID
@@ -128,15 +130,54 @@ class Feedback:
     def set_Description(self, Description: list):
         self.Description = Description
 
-    def set_FbValue(self, FbValue: list):
-        self.FbValue = FbValue
+    def set_FbVal(self, FbVal: list):
+        self.FbVal = FbVal
 
     def add_Description(self, Description: Description) -> object:
         self.Description.append(Description)
 
-    def add_FbValue(self, FbValue: FbValue) -> object:
-        self.FbValue.append(FbValue)
+    def add_FbVal(self, FbVal: FbVal) -> object:
+        self.FbVal.append(FbVal)
 
     def __str__(self):
-        return "GlobalID: " + str(self.GlobalID) + ", ItemType: " + str(self.ItemType) + ", MessageType: " + str(self.MessageType) + ", Code: " + str(self.Code) + ", InfoValue: " + str(self.InfoValue) + ", PieceCount: " + str(self.PieceCount) + ", MaterialType: " + str(self.MaterialType) + ", MaterialBatch: " + str(self.MaterialBatch) + ", MaterialWeight: " + str(self.MaterialWeight) + ", ProdDate: " + str(self.ProdDate) + ", Machine: " + str(self.Machine) + ", Description: " + str(self.Description) + ", FbValue: " + str(self.FbValue)
+        return "GlobalID: " + str(self.GlobalID) + ", ItemType: " + str(self.ItemType) + ", MessageType: " + str(self.MessageType) + ", Code: " + str(self.Code) + ", InfoValue: " + str(self.InfoValue) + ", PieceCount: " + str(self.PieceCount) + ", MaterialType: " + str(self.MaterialType) + ", MaterialBatch: " + str(self.MaterialBatch) + ", MaterialWeight: " + str(self.MaterialWeight) + ", ProdDate: " + str(self.ProdDate) + ", Machine: " + str(self.Machine) + ", Description: " + str(self.Description) + ", FbVal: " + str(self.FbVal)
 
+    def __xml__(self):
+        Feedback = ET.Element('Feedback')
+        if self.GlobalID is not None:
+            Feedback.set('GlobalID', self.GlobalID)
+        if self.ItemType is not None:
+            Feedback.set('ItemType', self.ItemType)
+        if self.MessageType is not None:
+            MessageType = ET.SubElement(Feedback, 'MessageType')
+            MessageType.text = self.MessageType
+        if self.Code is not None:
+            Code = ET.SubElement(Feedback, 'Code')
+            Code.text = self.Code
+        if self.InfoValue is not None:
+            InfoValue = ET.SubElement(Feedback, 'InfoValue')
+            InfoValue.text = self.InfoValue
+        if self.PieceCount is not None:
+            PieceCount = ET.SubElement(Feedback, 'PieceCount')
+            PieceCount.text = str(self.PieceCount)
+        if self.MaterialType is not None:
+            MaterialType = ET.SubElement(Feedback, 'MaterialType')
+            MaterialType.text = self.MaterialType
+        if self.MaterialBatch is not None:
+            MaterialBatch = ET.SubElement(Feedback, 'MaterialBatch')
+            MaterialBatch.text = self.MaterialBatch
+        if self.MaterialWeight is not None:
+            MaterialWeight = ET.SubElement(Feedback, 'MaterialWeight')
+            MaterialWeight.text = str(self.MaterialWeight)
+        if self.ProdDate is not None:
+            ProdDate = ET.SubElement(Feedback, 'ProdDate')
+            ProdDate.text = self.ProdDate
+        if self.Machine is not None:
+            Machine = ET.SubElement(Feedback, 'Machine')
+            Machine.text = self.Machine
+        for Description in self.Description:
+            Feedback.append(Description.__xml__())
+        for FbVal in self.FbVal:
+            Feedback.append(FbVal.__xml__())
+
+        return Feedback

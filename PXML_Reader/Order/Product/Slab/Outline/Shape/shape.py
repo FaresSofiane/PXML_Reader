@@ -1,4 +1,6 @@
 from .SVertex.svertex import SVertex
+import xml.etree.ElementTree as ET
+
 
 class Shape():
     GlobalID = None # STR // 0,1
@@ -66,4 +68,16 @@ class Shape():
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", Cutout: " + str(self.Cutout) + ", RefHeight: " + str(self.RefHeight) + ", SVertex: " + str(self.SVertex)
 
-
+    def __xml__(self):
+        shape = ET.Element("Shape")
+        if self.GlobalID is not None:
+            shape.set("GlobalID",self.GlobalID)
+        if self.Cutout is not None:
+            Cutout = ET.SubElement(shape,"Cutout")
+            Cutout.text = str(self.Cutout)
+        if self.RefHeight is not None:
+            RefHeight = ET.SubElement(shape,"RefHeight")
+            RefHeight.text = str(self.RefHeight)
+        for svertex in self.SVertex:
+            shape.append(svertex.__xml__())
+        return shape

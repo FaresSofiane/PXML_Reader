@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class Spacer():
     GlobalID = None # STR // 0,1
     Type = None # INT // 0,1
@@ -47,3 +50,14 @@ class Spacer():
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", Type: " + str(self.Type) + ", Position: " + str(self.Position)
 
+    def __xml__(self):
+        Spacer = ET.Element('Spacer')
+        if self.GlobalID is not None:
+            Spacer.set('GlobalID', self.GlobalID)
+        if self.Type is not None:
+            Type = ET.SubElement(Spacer, 'Type')
+            Type.text = str(self.Type)
+        if self.Position is not None:
+            Spacer = ET.SubElement(Spacer, 'Position')
+            Spacer.text = str(self.Position)
+        return Spacer

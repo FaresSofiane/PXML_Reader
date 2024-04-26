@@ -1,9 +1,11 @@
 from .Spacer.spacer import Spacer
 from .WeldingPoint.weldingpoint import WeldingPoint
 from .Segment.segment import Segment
+import xml.etree.ElementTree as ET
 
 class Bar:
     GlobalID = None # STR // 0,1
+    ShapeMode = None # STR // 0,1
     ReinforcementType = None # STR // 0,1
     SteelQuality = None # STR // 0,1
     PieceCount = None # INT // 0,1
@@ -24,8 +26,9 @@ class Bar:
     WeldingPoint = [] # WeldingPoint // n,n
     Segment = [] # Segment // n,n
 
-    def __init__(self, GlobalID: str = None, ReinforcementType: str = None, SteelQuality: str = None, PieceCount: int = None, Diameter: float = None, X: float = None, Y: float = None, Z: float = None, RotZ: float = None, ArticleNo: str = None, NoAutoProd: bool = False, ExtIronWeight: float = None, Bin: str = None, Pos: str = None, Note: str = None, Machine: str = None, BendingDevice: str = None, Spacer: list = [], WeldingPoint: list = [], Segment: list = []):
+    def __init__(self, GlobalID: str = None,ShapeMode:str = None, ReinforcementType: str = None, SteelQuality: str = None, PieceCount: int = None, Diameter: float = None, X: float = None, Y: float = None, Z: float = None, RotZ: float = None, ArticleNo: str = None, NoAutoProd: bool = False, ExtIronWeight: float = None, Bin: str = None, Pos: str = None, Note: str = None, Machine: str = None, BendingDevice: str = None, Spacer: list = [], WeldingPoint: list = [], Segment: list = []):
         self.GlobalID = GlobalID
+        self.ShapeMode = ShapeMode
         self.ReinforcementType = ReinforcementType
         self.SteelQuality = SteelQuality
         if type(PieceCount) is int:
@@ -251,3 +254,74 @@ class Bar:
 
     def add_Segment(self, Segment: Segment) -> object:
         self.Segment.append(Segment)
+
+
+    def __str__(self):
+        return f'GlobalID: {self.GlobalID}, ReinforcementType: {self.ReinforcementType}, SteelQuality: {self.SteelQuality}, PieceCount: {self.PieceCount}, Diameter: {self.Diameter}, X: {self.X}, Y: {self.Y}, Z: {self.Z}, RotZ: {self.RotZ}, ArticleNo: {self.ArticleNo}, NoAutoProd: {self.NoAutoProd}, ExtIronWeight: {self.ExtIronWeight}, Bin: {self.Bin}, Pos: {self.Pos}, Note: {self.Note}, Machine: {self.Machine}, BendingDevice: {self.BendingDevice}, Spacer: {self.Spacer}, WeldingPoint: {self.WeldingPoint}, Segment: {self.Segment}'
+
+    def __xml__(self):
+        bar = ET.Element("Bar")
+        if self.GlobalID is not None:
+            bar.set("GlobalID",self.GlobalID)
+        if self.ShapeMode is not None:
+            ShapeMode = ET.SubElement(bar,"ShapeMode")
+            ShapeMode.text = str(self.ShapeMode)
+        if self.ReinforcementType is not None:
+            ReinforcementType = ET.SubElement(bar,"ReinforcementType")
+            ReinforcementType.text = str(self.ReinforcementType)
+        if self.SteelQuality is not None:
+            SteelQuality = ET.SubElement(bar,"SteelQuality")
+            SteelQuality.text = str(self.SteelQuality)
+        if self.PieceCount is not None:
+            PieceCount = ET.SubElement(bar,"PieceCount")
+            PieceCount.text = str(self.PieceCount)
+        if self.Diameter is not None:
+            Diameter = ET.SubElement(bar,"Diameter")
+            Diameter.text = str(self.Diameter)
+        if self.X is not None:
+            X = ET.SubElement(bar,"X")
+            X.text = str(self.X)
+        if self.Y is not None:
+            Y = ET.SubElement(bar,"Y")
+            Y.text = str(self.Y)
+        if self.Z is not None:
+            Z = ET.SubElement(bar,"Z")
+            Z.text = str(self.Z)
+        if self.RotZ is not None:
+            RotZ = ET.SubElement(bar,"RotZ")
+            RotZ.text = str(self.RotZ)
+        if self.ArticleNo is not None:
+            ArticleNo = ET.SubElement(bar,"ArticleNo")
+            ArticleNo.text = str(self.ArticleNo)
+        if self.NoAutoProd is not None:
+            NoAutoProd = ET.SubElement(bar,"NoAutoProd")
+            NoAutoProd.text = str(self.NoAutoProd)
+        if self.ExtIronWeight is not None:
+            ExtIronWeight = ET.SubElement(bar,"ExtIronWeight")
+            ExtIronWeight.text = str(self.ExtIronWeight)
+        if self.Bin is not None:
+            Bin = ET.SubElement(bar,"Bin")
+            Bin.text = str(self.Bin)
+        if self.Pos is not None:
+            Pos = ET.SubElement(bar,"Pos")
+            Pos.text = str(self.Pos)
+        if self.Note is not None:
+            Note = ET.SubElement(bar,"Note")
+            Note.text = str(self.Note)
+        if self.Machine is not None:
+            Machine = ET.SubElement(bar,"Machine")
+            Machine.text = str(self.Machine)
+        if self.BendingDevice is not None:
+            BendingDevice = ET.SubElement(bar,"BendingDevice")
+            BendingDevice.text = str(self.BendingDevice)
+        for Spacer in self.Spacer:
+            bar.append(Spacer.__xml__())
+
+        for WeldingPoint in self.WeldingPoint:
+            bar.append(WeldingPoint.__xml__())
+
+        for Segment in self.Segment:
+            bar.append(Segment.__xml__())
+
+        return bar
+

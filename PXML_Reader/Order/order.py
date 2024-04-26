@@ -1,4 +1,4 @@
-import xml.etree.ElementTree as etree
+import xml.etree.ElementTree as ET
 
 class Order():
     GlobalID = "" # STR // Obligatoire 1,1
@@ -480,124 +480,124 @@ class Order():
 
 
     def __xml__(self):
-        Order = etree.Element("Order")
+        Order = ET.Element("Order")
         Order.set("GlobalID", self.GlobalID)
         if self.OrderNo is not None:
-            OrderNo = etree.SubElement(Order, "OrderNo")
+            OrderNo = ET.SubElement(Order, "OrderNo")
             OrderNo.text = str(self.OrderNo)
         if self.Structure is not None:
-            Structure = etree.SubElement(Order, "Structure")
+            Structure = ET.SubElement(Order, "Structure")
             Structure.text = str(self.Structure)
         if self.Building is not None:
-            Building = etree.SubElement(Order, "Building")
+            Building = ET.SubElement(Order, "Building")
             Building.text = str(self.Building)
         if self.Storey is not None:
-            Storey = etree.SubElement(Order, "Storey")
+            Storey = ET.SubElement(Order, "Storey")
             Storey.text = str(self.Storey)
         if self.SubStorey is not None:
-            SubStorey = etree.SubElement(Order, "SubStorey")
+            SubStorey = ET.SubElement(Order, "SubStorey")
             SubStorey.text = str(self.SubStorey)
         if self.Component is not None:
-            Component = etree.SubElement(Order, "Component")
+            Component = ET.SubElement(Order, "Component")
             Component.text = str(self.Component)
         if self.DrawingNo is not None:
-            DrawingNo = etree.SubElement(Order, "DrawingNo")
+            DrawingNo = ET.SubElement(Order, "DrawingNo")
             DrawingNo.text = str(self.DrawingNo)
         if self.DrawingDate is not None:
-            DrawingDate = etree.SubElement(Order, "DrawingDate")
+            DrawingDate = ET.SubElement(Order, "DrawingDate")
             DrawingDate.text = str(self.DrawingDate)
         if self.DrawingRevision is not None:
-            DrawingRevision = etree.SubElement(Order, "DrawingRevision")
+            DrawingRevision = ET.SubElement(Order, "DrawingRevision")
             DrawingRevision.text = str(self.DrawingRevision)
         if self.DrawingAuthor is not None:
-            DrawingAuthor = etree.SubElement(Order, "DrawingAuthor")
+            DrawingAuthor = ET.SubElement(Order, "DrawingAuthor")
             DrawingAuthor.text = str(self.DrawingAuthor)
         if self.ErpProjectUnit is not None:
-            ErpProjectUnit = etree.SubElement(Order, "ErpProjectUnit")
+            ErpProjectUnit = ET.SubElement(Order, "ErpProjectUnit")
             ErpProjectUnit.text = str(self.ErpProjectUnit)
         if self.DeliveryDate is not None:
-            DeliveryDate = etree.SubElement(Order, "DeliveryDate")
+            DeliveryDate = ET.SubElement(Order, "DeliveryDate")
             DeliveryDate.text = str(self.DeliveryDate)
         if self.GenericOrderInfo01 is not None:
-            GenericOrderInfo01 = etree.SubElement(Order, "GenericOrderInfo01")
+            GenericOrderInfo01 = ET.SubElement(Order, "GenericOrderInfo01")
             GenericOrderInfo01.text = str(self.GenericOrderInfo01)
         if self.GenericOrderInfo02 is not None:
-            GenericOrderInfo02 = etree.SubElement(Order, "GenericOrderInfo02")
+            GenericOrderInfo02 = ET.SubElement(Order, "GenericOrderInfo02")
             GenericOrderInfo02.text = str(self.GenericOrderInfo02)
         if self.GenericOrderInfo03 is not None:
-            GenericOrderInfo03 = etree.SubElement(Order, "GenericOrderInfo03")
+            GenericOrderInfo03 = ET.SubElement(Order, "GenericOrderInfo03")
             GenericOrderInfo03.text = str(self.GenericOrderInfo03)
         if self.GenericOrderInfo04 is not None:
-            GenericOrderInfo04 = etree.SubElement(Order, "GenericOrderInfo04")
+            GenericOrderInfo04 = ET.SubElement(Order, "GenericOrderInfo04")
             GenericOrderInfo04.text = str(self.GenericOrderInfo04)
         if self.GenericOrderInfo05 is not None:
-            GenericOrderInfo05 = etree.SubElement(Order, "GenericOrderInfo05")
+            GenericOrderInfo05 = ET.SubElement(Order, "GenericOrderInfo05")
             GenericOrderInfo05.text = str(self.GenericOrderInfo05)
         if self.GenericOrderInfo06 is not None:
-            GenericOrderInfo06 = etree.SubElement(Order, "GenericOrderInfo06")
+            GenericOrderInfo06 = ET.SubElement(Order, "GenericOrderInfo06")
             GenericOrderInfo06.text = str(self.GenericOrderInfo06)
         if self.GenericOrderInfo07 is not None:
-            GenericOrderInfo07 = etree.SubElement(Order, "GenericOrderInfo07")
+            GenericOrderInfo07 = ET.SubElement(Order, "GenericOrderInfo07")
             GenericOrderInfo07.text = str(self.GenericOrderInfo07)
         if self.GenericOrderInfo08 is not None:
-            GenericOrderInfo08 = etree.SubElement(Order, "GenericOrderInfo08")
+            GenericOrderInfo08 = ET.SubElement(Order, "GenericOrderInfo08")
             GenericOrderInfo08.text = str(self.GenericOrderInfo08)
         if self.GenericOrderInfo09 is not None:
-            GenericOrderInfo09 = etree.SubElement(Order, "GenericOrderInfo09")
+            GenericOrderInfo09 = ET.SubElement(Order, "GenericOrderInfo09")
             GenericOrderInfo09.text = str(self.GenericOrderInfo09)
         if self.GenericOrderInfo10 is not None:
-            GenericOrderInfo10 = etree.SubElement(Order, "GenericOrderInfo10")
+            GenericOrderInfo10 = ET.SubElement(Order, "GenericOrderInfo10")
             GenericOrderInfo10.text = str(self.GenericOrderInfo10)
         if self.GenericOrderInfo11 is not None:
-            GenericOrderInfo11 = etree.SubElement(Order, "GenericOrderInfo11")
+            GenericOrderInfo11 = ET.SubElement(Order, "GenericOrderInfo11")
             GenericOrderInfo11.text = str(self.GenericOrderInfo11)
         if self.GenericOrderInfo12 is not None:
-            GenericOrderInfo12 = etree.SubElement(Order, "GenericOrderInfo12")
+            GenericOrderInfo12 = ET.SubElement(Order, "GenericOrderInfo12")
             GenericOrderInfo12.text = str(self.GenericOrderInfo12)
         if self.GenericOrderInfo13 is not None:
-            GenericOrderInfo13 = etree.SubElement(Order, "GenericOrderInfo13")
+            GenericOrderInfo13 = ET.SubElement(Order, "GenericOrderInfo13")
             GenericOrderInfo13.text = str(self.GenericOrderInfo13)
         if self.GenericOrderInfo14 is not None:
-            GenericOrderInfo14 = etree.SubElement(Order, "GenericOrderInfo14")
+            GenericOrderInfo14 = ET.SubElement(Order, "GenericOrderInfo14")
             GenericOrderInfo14.text = str(self.GenericOrderInfo14)
         if self.GenericOrderInfo15 is not None:
-            GenericOrderInfo15 = etree.SubElement(Order, "GenericOrderInfo15")
+            GenericOrderInfo15 = ET.SubElement(Order, "GenericOrderInfo15")
             GenericOrderInfo15.text = str(self.GenericOrderInfo15)
         if self.GenericOrderInfo16 is not None:
-            GenericOrderInfo16 = etree.SubElement(Order, "GenericOrderInfo16")
+            GenericOrderInfo16 = ET.SubElement(Order, "GenericOrderInfo16")
             GenericOrderInfo16.text = str(self.GenericOrderInfo16)
         if self.GenericOrderInfo17 is not None:
-            GenericOrderInfo17 = etree.SubElement(Order, "GenericOrderInfo17")
+            GenericOrderInfo17 = ET.SubElement(Order, "GenericOrderInfo17")
             GenericOrderInfo17.text = str(self.GenericOrderInfo17)
         if self.GenericOrderInfo18 is not None:
-            GenericOrderInfo18 = etree.SubElement(Order, "GenericOrderInfo18")
+            GenericOrderInfo18 = ET.SubElement(Order, "GenericOrderInfo18")
             GenericOrderInfo18.text = str(self.GenericOrderInfo18)
         if self.GenericOrderInfo19 is not None:
-            GenericOrderInfo19 = etree.SubElement(Order, "GenericOrderInfo19")
+            GenericOrderInfo19 = ET.SubElement(Order, "GenericOrderInfo19")
             GenericOrderInfo19.text = str(self.GenericOrderInfo19)
         if self.GenericOrderInfo20 is not None:
-            GenericOrderInfo20 = etree.SubElement(Order, "GenericOrderInfo20")
+            GenericOrderInfo20 = ET.SubElement(Order, "GenericOrderInfo20")
             GenericOrderInfo20.text = str(self.GenericOrderInfo20)
         if self.Comment is not None:
-            Comment = etree.SubElement(Order, "Comment")
+            Comment = ET.SubElement(Order, "Comment")
             Comment.text = str(self.Comment)
         if self.OrderArea is not None:
-            OrderArea = etree.SubElement(Order, "OrderArea")
+            OrderArea = ET.SubElement(Order, "OrderArea")
             OrderArea.text = str(self.OrderArea)
         if self.ImportSource is not None:
-            ImportSource = etree.SubElement(Order, "ImportSource")
+            ImportSource = ET.SubElement(Order, "ImportSource")
             ImportSource.text = str(self.ImportSource)
         if self.ImportSourceType is not None:
-            ImportSourceType = etree.SubElement(Order, "ImportSourceType")
+            ImportSourceType = ET.SubElement(Order, "ImportSourceType")
             ImportSourceType.text = str(self.ImportSourceType)
         if self.ApplicationName is not None:
-            ApplicationName = etree.SubElement(Order, "ApplicationName")
+            ApplicationName = ET.SubElement(Order, "ApplicationName")
             ApplicationName.text = str(self.ApplicationName)
         if self.ApplicationGUID is not None:
-            ApplicationGUID = etree.SubElement(Order, "ApplicationGUID")
+            ApplicationGUID = ET.SubElement(Order, "ApplicationGUID")
             ApplicationGUID.text = str(self.ApplicationGUID)
         if self.ApplicationVersion is not None:
-            ApplicationVersion = etree.SubElement(Order, "ApplicationVersion")
+            ApplicationVersion = ET.SubElement(Order, "ApplicationVersion")
             ApplicationVersion.text = str(self.ApplicationVersion)
         for OrderInfo in self.OrderInfo:
             Order.append(OrderInfo.__xml__())

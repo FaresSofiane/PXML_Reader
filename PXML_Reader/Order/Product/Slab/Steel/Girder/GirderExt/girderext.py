@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class GirderExt:
     GlobalID = None # STR // 0,1
     Type = None # STR // 0,1
@@ -129,3 +132,28 @@ class GirderExt:
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", Type: " + str(self.Type) + ", Position: " + str(self.Position) + ", Flags: " + str(self.Flags) + ", Val0: " + str(self.Val0) + ", Val1: " + str(self.Val1) + ", Val2: " + str(self.Val2) + ", Val3: " + str(self.Val3)
 
+    def __xml__(self):
+        GirderExt = ET.Element('GirderExt')
+        if self.GlobalID is not None:
+            GirderExt.set('GlobalID', self.GlobalID)
+        if self.Type is not None:
+            GirderExt.set('Type', self.Type)
+        if self.Position is not None:
+            Position = ET.SubElement(GirderExt, 'Position')
+            Position.text = str(self.Position)
+        if self.Flags is not None:
+            Flags = ET.SubElement(GirderExt, 'Flags')
+            Flags.text = str(self.Flags)
+        if self.Val0 is not None:
+            Val0 = ET.SubElement(GirderExt, 'Val0')
+            Val0.text = str(self.Val0)
+        if self.Val1 is not None:
+            Val1 = ET.SubElement(GirderExt, 'Val1')
+            Val1.text = str(self.Val1)
+        if self.Val2 is not None:
+            Val2 = ET.SubElement(GirderExt, 'Val2')
+            Val2.text = str(self.Val2)
+        if self.Val3 is not None:
+            Val3 = ET.SubElement(GirderExt, 'Val3')
+            Val3.text = str(self.Val3)
+        return GirderExt

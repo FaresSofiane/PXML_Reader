@@ -1,4 +1,5 @@
 from .Shape.shape import Shape
+import xml.etree.ElementTree as ET
 
 class Outline():
     GlobalID = None # STR // 0,1
@@ -336,6 +337,87 @@ class Outline():
 
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", Type: " + str(self.Type) + ", X: " + str(self.X) + ", Y: " + str(self.Y) + ", Z: " + str(self.Z) + ", RotX: " + str(self.RotX) + ", RotY: " + str(self.RotY) + ", RotZ: " + str(self.RotZ) + ", Height: " + str(self.Height) + ", Name: " + str(self.Name) + ", GenericInfo01: " + str(self.GenericInfo01) + ", GenericInfo02: " + str(self.GenericInfo02) + ", MountingInstruction: " + str(self.MountingInstruction) + ", MountPartType: " + str(self.MountPartType) + ", MountPartArticle: " + str(self.MountPartArticle) + ", MountPartIronProjection: " + str(self.MountPartIronProjection) + ", MountPartDirection: " + str(self.MountPartDirection) + ", MountPartLength: " + str(self.MountPartLength) + ", MountPartWidth: " + str(self.MountPartWidth) + ", ConcretingMode: " + str(self.ConcretingMode) + ", ConcreteQuality: " + str(self.ConcreteQuality) + ", UnitWeight: " + str(self.UnitWeight) + ", Volume: " + str(self.Volume) + ", Layer: " + str(self.Layer) + ", ObjectID: " + str(self.ObjectID) + ", Shape: " + str(self.Shape)
+
+    def __xml__(self):
+        Outline  = ET.Element('Outline')
+        if self.GlobalID is not None:
+            Outline.set('GlobalID', str(self.GlobalID))
+        Outline.set('Type', str(self.Type))
+        if self.X is not None:
+            X = ET.SubElement(Outline, 'X')
+            X.text = str(self.X)
+        if self.Y is not None:
+            Y = ET.SubElement(Outline, 'Y')
+            Y.text = str(self.Y)
+        if self.Z is not None:
+            Z = ET.SubElement(Outline, 'Z')
+            Z.text = str(self.Z)
+        if self.RotX is not None:
+            RotX = ET.SubElement(Outline, 'RotX')
+            RotX.text = str(self.RotX)
+        if self.RotY is not None:
+            RotY = ET.SubElement(Outline, 'RotY')
+            RotY.text = str(self.RotY)
+        if self.RotZ is not None:
+            RotZ = ET.SubElement(Outline, 'RotZ')
+            RotZ.text = str(self.RotZ)
+        if self.Height is not None:
+            Height = ET.SubElement(Outline, 'Height')
+            Height.text = str(self.Height)
+        if self.Name is not None:
+            Name = ET.SubElement(Outline, 'Name')
+            Name.text = str(self.Name)
+        if self.GenericInfo01 is not None:
+            GenericInfo01 = ET.SubElement(Outline, 'GenericInfo01')
+            GenericInfo01.text = str(self.GenericInfo01)
+        if self.GenericInfo02 is not None:
+            GenericInfo02 = ET.SubElement(Outline, 'GenericInfo02')
+            GenericInfo02.text = str(self.GenericInfo02)
+        if self.MountingInstruction is not None:
+            MountingInstruction = ET.SubElement(Outline, 'MountingInstruction')
+            MountingInstruction.text = str(self.MountingInstruction)
+        if self.MountPartType is not None:
+            MountPartType = ET.SubElement(Outline, 'MountPartType')
+            MountPartType.text = str(self.MountPartType)
+        if self.MountPartArticle is not None:
+            MountPartArticle = ET.SubElement(Outline, 'MountPartArticle')
+            MountPartArticle.text = str(self.MountPartArticle)
+        if self.MountPartIronProjection is not None:
+            MountPartIronProjection = ET.SubElement(Outline, 'MountPartIronProjection')
+            MountPartIronProjection.text = str(self.MountPartIronProjection)
+        if self.MountPartDirection is not None:
+            MountPartDirection = ET.SubElement(Outline, 'MountPartDirection')
+            MountPartDirection.text = str(self.MountPartDirection)
+        if self.MountPartLength is not None:
+            MountPartLength = ET.SubElement(Outline, 'MountPartLength')
+            MountPartLength.text = str(self.MountPartLength)
+        if self.MountPartWidth is not None:
+            MountPartWidth = ET.SubElement(Outline, 'MountPartWidth')
+            MountPartWidth.text = str(self.MountPartWidth)
+        if self.ConcretingMode is not None:
+            ConcretingMode = ET.SubElement(Outline, 'ConcretingMode')
+            ConcretingMode.text = str(self.ConcretingMode)
+        if self.ConcreteQuality is not None:
+            ConcreteQuality = ET.SubElement(Outline, 'ConcreteQuality')
+            ConcreteQuality.text = str(self.ConcreteQuality)
+        if self.UnitWeight is not None:
+            UnitWeight = ET.SubElement(Outline, 'UnitWeight')
+            UnitWeight.text = str(self.UnitWeight)
+        if self.Volume is not None:
+            Volume = ET.SubElement(Outline, 'Volume')
+            Volume.text = str(self.Volume)
+        if self.Layer is not None:
+            Layer = ET.SubElement(Outline, 'Layer')
+            Layer.text = str(self.Layer)
+        if self.ObjectID is not None:
+            ObjectID = ET.SubElement(Outline, 'ObjectID')
+            ObjectID.text = str(self.ObjectID)
+        if self.Shape is not None:
+            for shape in self.Shape:
+                Outline.append(shape.__xml__())
+
+        return Outline
+
 
 
 

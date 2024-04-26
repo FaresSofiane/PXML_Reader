@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class Section:
     GlobalID = None # STR // 0,1
     L = None # FLOAT // 0,1
@@ -65,3 +68,16 @@ class Section:
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", L: " + str(self.L) + ", S: " + str(self.S) + ", F: " + str(self.F)
 
+    def __xml__(self):
+        Section = ET.Element("Section")
+        Section.set('GlobalID', self.GlobalID)
+        if self.L is not None:
+            L = ET.SubElement(Section, "L")
+            L.text = str(self.L)
+        if self.S is not None:
+            S = ET.SubElement(Section, "S")
+            S.text = str(self.S)
+        if self.F is not None:
+            F = ET.SubElement(Section, "F")
+            F.text = str(self.F)
+        return Section

@@ -1,60 +1,74 @@
 import xml.etree.ElementTree as ET
 
-class Slab():
-    GlobalID = None # STR // 0,1
-    SlabNo = None # STR // 0,1
-    PartType = None # STR // 0,1
-    ProductAddition = None # STR // 0,1
-    ProductionWay = None # STR // 0,1
-    NumberOfMeansOfTransport = None # STR // 0,1
-    TransportSequence = None # STR // 0,1
-    PileLevel = None # STR // 0,1
-    TypeOfUnloading = None # STR // 0,1
-    MeanOfTransport = None # STR // 0,1
-    ExpositionClass = None # STR // 0,1
-    SlabArea = None # FLOAT // 0,1
-    SlabWeight = None # FLOAT // 0,1
-    ProductionThickness = None # FLOAT // 0,1
-    MaxLength = None # FLOAT // 0,1
-    MaxWidth = None # FLOAT // 0,1
-    IronProjectionLeft = None # FLOAT // 0,1
-    IronProjectionRight = None # FLOAT // 0,1
-    IronProjectionBottom = None # FLOAT // 0,1
-    IronProjectionTop = None # FLOAT // 0,1
-    X = None # FLOAT // 0,1
-    Y = None # FLOAT // 0,1
-    Z = None # FLOAT // 0,1
-    RotX = None # FLOAT // 0,1
-    RotY = None # FLOAT // 0,1
-    RotZ = None # FLOAT // 0,1
-    ProdX = None # FLOAT // 0,1
-    ProdY = None # FLOAT // 0,1
-    ProdZ = None # FLOAT // 0,1
-    ProdRotX = None # FLOAT // 0,1
-    ProdRotY = None # FLOAT // 0,1
-    ProdRotZ = None # FLOAT // 0,1
-    OrderPosition = None # STR // 0,1
-    ProductGroup = None # STR // 0,1
-    SlabType = None # STR // 0,1
-    ItemDesignation = None # STR // 0,1
-    ProjectCoordinates = None # STR // 0,1
-    PositionInPileX = None # FLOAT // 0,1
-    PositionInPileY = None # FLOAT // 0,1
-    PositionInPileZ = None # FLOAT // 0,1
-    AngleInPile = None # FLOAT // 0,1
-    GenericInfo01 = None # STR // 0,1
-    GenericInfo02 = None # STR // 0,1
-    GenericInfo03 = None # STR // 0,1
-    GenericInfo04 = None # STR // 0,1
-    ReforcemInfo = None # STR // 0,1
-    Outline = []
-    Steel = [] # Steel // n,n
 
-    def __init__(self, GlobalID: str = None, SlabNo: str = None, PartType: str = None, ProductAddition: str = None, ProductionWay: str = None, NumberOfMeansOfTransport: str = None, TransportSequence: str = None, PileLevel: str = None, TypeOfUnloading: str = None, MeanOfTransport: str = None, ExpositionClass: str = None, SlabArea: float = None, SlabWeight: float = None, ProductionThickness: float = None, MaxLength: float = None, MaxWidth: float = None, IronProjectionLeft: float = None, IronProjectionRight: float = None, IronProjectionBottom: float = None, IronProjectionTop: float = None, X: float = None, Y: float = None, Z: float = None, RotX: float = None, RotY: float = None, RotZ: float = None, ProdX: float = None, ProdY: float = None, ProdZ: float = None, ProdRotX: float = None, ProdRotY: float = None, ProdRotZ: float = None, OrderPosition: str = None, ProductGroup: str = None, SlabType: str = None, ItemDesignation: str = None, ProjectCoordinates: str = None, PositionInPileX: float = None, PositionInPileY: float = None, PositionInPileZ: float = None, AngleInPile: float = None, GenericInfo01: str = None, GenericInfo02: str = None, GenericInfo03: str = None, GenericInfo04: str = None, ReforcemInfo: str = None, Outline: list = [], Steel: list = []):
+class Slab():
+    GlobalID = None  # STR // 0,1
+    SlabNo = None  # STR // 0,1
+    PartType = None  # STR // 0,1
+    ProductionAddition = None  # STR // 0,1
+    ProductionWay = None  # STR // 0,1
+    NumberOfMeansOfTransport = None  # STR // 0,1
+    TransportSequence = None  # STR // 0,1
+    PileLevel = None  # STR // 0,1
+    TypeOfUnloading = None  # STR // 0,1
+    MeanOfTransport = None  # STR // 0,1
+    ExpositionClass = None  # STR // 0,1
+    SlabArea = None  # FLOAT // 0,1
+    SlabWeight = None  # FLOAT // 0,1
+    ProductionThickness = None  # FLOAT // 0,1
+    MaxLength = None  # FLOAT // 0,1
+    MaxWidth = None  # FLOAT // 0,1
+    IronProjectionLeft = None  # FLOAT // 0,1
+    IronProjectionRight = None  # FLOAT // 0,1
+    IronProjectionBottom = None  # FLOAT // 0,1
+    IronProjectionTop = None  # FLOAT // 0,1
+    X = None  # FLOAT // 0,1
+    Y = None  # FLOAT // 0,1
+    Z = None  # FLOAT // 0,1
+    RotX = None  # FLOAT // 0,1
+    RotY = None  # FLOAT // 0,1
+    RotZ = None  # FLOAT // 0,1
+    ProdX = None  # FLOAT // 0,1
+    ProdY = None  # FLOAT // 0,1
+    ProdZ = None  # FLOAT // 0,1
+    ProdRotX = None  # FLOAT // 0,1
+    ProdRotY = None  # FLOAT // 0,1
+    ProdRotZ = None  # FLOAT // 0,1
+    OrderPosition = None  # STR // 0,1
+    ProductGroup = None  # STR // 0,1
+    SlabType = None  # STR // 0,1
+    ItemDesignation = None  # STR // 0,1
+    ProjectCoordinates = None  # STR // 0,1
+    PositionInPileX = None  # FLOAT // 0,1
+    PositionInPileY = None  # FLOAT // 0,1
+    PositionInPileZ = None  # FLOAT // 0,1
+    AngleInPile = None  # FLOAT // 0,1
+    GenericInfo01 = None  # STR // 0,1
+    GenericInfo02 = None  # STR // 0,1
+    GenericInfo03 = None  # STR // 0,1
+    GenericInfo04 = None  # STR // 0,1
+    ReforcemInfo = None  # STR // 0,1
+    Outline = []
+    Steel = []  # Steel // n,n
+
+    def __init__(self, GlobalID: str = None, SlabNo: str = None, PartType: str = None, ProductionAddition: str = None,
+                 ProductionWay: str = None, NumberOfMeansOfTransport: str = None, TransportSequence: str = None,
+                 PileLevel: str = None, TypeOfUnloading: str = None, MeanOfTransport: str = None,
+                 ExpositionClass: str = None, SlabArea: float = None, SlabWeight: float = None,
+                 ProductionThickness: float = None, MaxLength: float = None, MaxWidth: float = None,
+                 IronProjectionLeft: float = None, IronProjectionRight: float = None,
+                 IronProjectionBottom: float = None, IronProjectionTop: float = None, X: float = None, Y: float = None,
+                 Z: float = None, RotX: float = None, RotY: float = None, RotZ: float = None, ProdX: float = None,
+                 ProdY: float = None, ProdZ: float = None, ProdRotX: float = None, ProdRotY: float = None,
+                 ProdRotZ: float = None, OrderPosition: str = None, ProductGroup: str = None, SlabType: str = None,
+                 ItemDesignation: str = None, ProjectCoordinates: str = None, PositionInPileX: float = None,
+                 PositionInPileY: float = None, PositionInPileZ: float = None, AngleInPile: float = None,
+                 GenericInfo01: str = None, GenericInfo02: str = None, GenericInfo03: str = None,
+                 GenericInfo04: str = None, ReforcemInfo: str = None, Outline: list = [], Steel: list = []):
         self.GlobalID = GlobalID
         self.SlabNo = SlabNo
         self.PartType = PartType
-        self.ProductAddition = ProductAddition
+        self.ProductionAddition = ProductionAddition
         self.ProductionWay = ProductionWay
         self.NumberOfMeansOfTransport = NumberOfMeansOfTransport
         self.TransportSequence = TransportSequence
@@ -334,8 +348,8 @@ class Slab():
     def get_PartType(self):
         return self.PartType
 
-    def get_ProductAddition(self):
-        return self.ProductAddition
+    def get_ProductionAddition(self):
+        return self.ProductionAddition
 
     def get_ProductionWay(self):
         return self.ProductionWay
@@ -478,8 +492,8 @@ class Slab():
     def set_PartType(self, PartType: str):
         self.PartType = PartType
 
-    def set_ProductAddition(self, ProductAddition: str):
-        self.ProductAddition = ProductAddition
+    def set_ProductionAddition(self, ProductionAddition: str):
+        self.ProductionAddition = ProductionAddition
 
     def set_ProductionWay(self, ProductionWay: str):
         self.ProductionWay = ProductionWay
@@ -620,12 +634,12 @@ class Slab():
         self.Steel.append(Steel)
 
     def __str__(self):
-        return f'{self.GlobalID} {self.SlabNo} {self.PartType} {self.ProductAddition} {self.ProductionWay} {self.NumberOfMeansOfTransport} {self.TransportSequence} {self.PileLevel} {self.TypeOfUnloading} {self.MeanOfTransport} {self.ExpositionClass} {self.SlabArea} {self.SlabWeight} {self.ProductionThickness} {self.MaxLength} {self.MaxWidth} {self.IronProjectionLeft} {self.IronProjectionRight} {self.IronProjectionBottom} {self.IronProjectionTop} {self.X} {self.Y} {self.Z} {self.RotX} {self.RotY} {self.RotZ} {self.ProdX} {self.ProdY} {self.ProdZ} {self.ProdRotX} {self.ProdRotY} {self.ProdRotZ} {self.OrderPosition} {self.ProductGroup} {self.SlabType} {self.ItemDesignation} {self.ProjectCoordinates} {self.PositionInPileX} {self.PositionInPileY} {self.PositionInPileZ} {self.AngleInPile} {self.GenericInfo01} {self.GenericInfo02} {self.GenericInfo03} {self.GenericInfo04} {self.ReforcemInfo} {self.Outline} {self.Steel}'
-
+        return f'{self.GlobalID} {self.SlabNo} {self.PartType} {self.ProductionAddition} {self.ProductionWay} {self.NumberOfMeansOfTransport} {self.TransportSequence} {self.PileLevel} {self.TypeOfUnloading} {self.MeanOfTransport} {self.ExpositionClass} {self.SlabArea} {self.SlabWeight} {self.ProductionThickness} {self.MaxLength} {self.MaxWidth} {self.IronProjectionLeft} {self.IronProjectionRight} {self.IronProjectionBottom} {self.IronProjectionTop} {self.X} {self.Y} {self.Z} {self.RotX} {self.RotY} {self.RotZ} {self.ProdX} {self.ProdY} {self.ProdZ} {self.ProdRotX} {self.ProdRotY} {self.ProdRotZ} {self.OrderPosition} {self.ProductGroup} {self.SlabType} {self.ItemDesignation} {self.ProjectCoordinates} {self.PositionInPileX} {self.PositionInPileY} {self.PositionInPileZ} {self.AngleInPile} {self.GenericInfo01} {self.GenericInfo02} {self.GenericInfo03} {self.GenericInfo04} {self.ReforcemInfo} {self.Outline} {self.Steel}'
 
     def __xml__(self):
         Slab = ET.Element('Slab')
-        Slab.set("GlobalID",self.GlobalID)
+        if self.GlobalID is not None:
+            Slab.set('GlobalID', self.GlobalID)
 
         if self.SlabNo is not None:
             SlabNo = ET.SubElement(Slab, "SlabNo")
@@ -633,9 +647,11 @@ class Slab():
         if self.PartType is not None:
             PartType = ET.SubElement(Slab, "PartType")
             PartType.text = self.PartType
-        if self.ProductAddition is not None:
-            ProductAddition = ET.SubElement(Slab, "ProductAddition")
-            ProductAddition.text = self.ProductAddition
+
+        print(f'ProductionAddition: {self.ProductionAddition}')
+        if self.ProductionAddition is not None:
+            ProductionAddition = ET.SubElement(Slab, "ProductionAddition")
+            ProductionAddition.text = self.ProductionAddition
         if self.ProductionWay is not None:
             ProductionWay = ET.SubElement(Slab, "ProductionWay")
             ProductionWay.text = self.ProductionWay
@@ -741,4 +757,33 @@ class Slab():
         if self.PositionInPileY is not None:
             PositionInPileY = ET.SubElement(Slab, "PositionInPileY")
             PositionInPileY.text = str(self.PositionInPileY)
+        if self.PositionInPileZ is not None:
+            PositionInPileZ = ET.SubElement(Slab, "PositionInPileZ")
+            PositionInPileZ.text = str(self.PositionInPileZ)
+        if self.AngleInPile is not None:
+            AngleInPile = ET.SubElement(Slab, "AngleInPile")
+            AngleInPile.text = str(self.AngleInPile)
+        if self.GenericInfo01 is not None:
+            GenericInfo01 = ET.SubElement(Slab, "GenericInfo01")
+            GenericInfo01.text = self.GenericInfo01
+        if self.GenericInfo02 is not None:
+            GenericInfo02 = ET.SubElement(Slab, "GenericInfo02")
+            GenericInfo02.text = self.GenericInfo02
+        if self.GenericInfo03 is not None:
+            GenericInfo03 = ET.SubElement(Slab, "GenericInfo03")
+            GenericInfo03.text = self.GenericInfo03
+        if self.GenericInfo04 is not None:
+            GenericInfo04 = ET.SubElement(Slab, "GenericInfo04")
+            GenericInfo04.text = self.GenericInfo04
+        if self.ReforcemInfo is not None:
+            ReforcemInfo = ET.SubElement(Slab, "ReforcemInfo")
+            ReforcemInfo.text = self.ReforcemInfo
+
+        for Outline in self.Outline:
+            Slab.append(Outline.__xml__())
+
+        for Steel in self.Steel:
+            Slab.append(Steel.__xml__())
+
+
         return Slab

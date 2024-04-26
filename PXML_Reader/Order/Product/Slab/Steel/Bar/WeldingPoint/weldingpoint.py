@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class WeldingPoint():
     GlobalId = None # STR // 0,1
     WeldingOutput = None # FLOAT // 0,1
@@ -90,3 +93,23 @@ class WeldingPoint():
         return "GlobalId: " + str(self.GlobalId) + ", WeldingOutput: " + str(self.WeldingOutput) + ", Position: " + str(self.Position) + ", WeldingPointType: " + str(self.WeldingPointType) + ", WeldingPrgNo: " + str(self.WeldingPrgNo) + ", GroupID: " + str(self.GroupID)
 
 
+    def __xml__(self):
+        WeldingPoint = ET.Element('WeldingPoint')
+        if self.GlobalId is not None:
+            WeldingPoint.set('GlobalId', self.GlobalId)
+        if self.WeldingOutput is not None:
+            WeldingOutput = ET.SubElement(WeldingPoint, 'WeldingOutput')
+            WeldingOutput.text = str(self.WeldingOutput)
+        if self.Position is not None:
+            Position = ET.SubElement(WeldingPoint, 'Position')
+            Position.text = str(self.Position)
+        if self.WeldingPointType is not None:
+            WeldingPointType = ET.SubElement(WeldingPoint, 'WeldingPointType')
+            WeldingPointType.text = str(self.WeldingPointType)
+        if self.WeldingPrgNo is not None:
+            WeldingPrgNo = ET.SubElement(WeldingPoint, 'WeldingPrgNo')
+            WeldingPrgNo.text = str(self.WeldingPrgNo)
+        if self.GroupID is not None:
+            GroupID = ET.SubElement(WeldingPoint, 'GroupID')
+            GroupID.text = str(self.GroupID)
+        return WeldingPoint

@@ -1,3 +1,5 @@
+import xml.etree.ElementTree as ET
+
 class SVertex():
     GlobalID = None # STR // 0,1
     X = None # FLOAT // 0,1
@@ -114,3 +116,30 @@ class SVertex():
 
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", X: " + str(self.X) + ", Y: " + str(self.Y) + ", Bulge: " + str(self.Bulge) + ", LineAttribute: " + str(self.LineAttribute) + ", Profile: " + str(self.Profile) + ", DX: " + str(self.DX) + ", DY: " + str(self.DY)
+
+    def __xml__(self):
+        SVertex = ET.Element("SVertex")
+        if self.GlobalID is not None:
+            SVertex.set("GlobalID",self.GlobalID)
+        if self.X is not None:
+            X = ET.SubElement(SVertex,"X")
+            X.text = str(self.X)
+        if self.Y is not None:
+            Y = ET.SubElement(SVertex,"Y")
+            Y.text = str(self.Y)
+        if self.Bulge is not None:
+            Bulge = ET.SubElement(SVertex,"Bulge")
+            Bulge.text = str(self.Bulge)
+        if self.LineAttribute is not None:
+            LineAttribute = ET.SubElement(SVertex,"LineAttribute")
+            LineAttribute.text = str(self.LineAttribute)
+        if self.Profile is not None:
+            Profile = ET.SubElement(SVertex,"Profile")
+            Profile.text = str(self.Profile)
+        if self.DX is not None:
+            DX = ET.SubElement(SVertex,"DX")
+            DX.text = str(self.DX)
+        if self.DY is not None:
+            DY = ET.SubElement(SVertex,"DY")
+            DY.text = str(self.DY)
+        return SVertex

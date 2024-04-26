@@ -1,3 +1,5 @@
+import xml.etree.ElementTree as ET
+
 class SteelExt:
     GlobalID = None # STR // 0,1
     Type = None # STR // 0,1
@@ -29,3 +31,13 @@ class SteelExt:
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", Type: " + str(self.Type) + ", Info: " + str(self.Info)
 
+    def __xml__(self):
+        SteelExt = ET.Element('SteelExt')
+        if self.GlobalID is not None:
+            SteelExt.set('GlobalID', self.GlobalID)
+        if self.Type is not None:
+            SteelExt.set('Type', self.Type)
+        if self.Info is not None:
+            Info = ET.SubElement(SteelExt, 'Info')
+            Info.text = self.Info
+        return SteelExt

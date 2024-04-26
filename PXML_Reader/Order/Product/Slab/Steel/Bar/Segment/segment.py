@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ET
+
+
 class Segment():
     GlobalID = None # STR // 0,1
     Type = None # STR // 0,1
@@ -88,3 +91,23 @@ class Segment():
 
     def __str__(self):
         return "GlobalID: " + str(self.GlobalID) + ", Type: " + str(self.Type) + ", RotX: " + str(self.RotX) + ", BendY: " + str(self.BendY) + ", L: " + str(self.L) + ", R: " + str(self.R)
+
+    def __xml__(self):
+        Segment = ET.Element('Segment')
+        if self.GlobalID is not None:
+            Segment.set('GlobalID', self.GlobalID)
+        if self.Type is not None:
+            Segment.set('Type', self.Type)
+        if self.RotX is not None:
+            RotX = ET.SubElement(Segment, 'RotX')
+            RotX.text = str(self.RotX)
+        if self.BendY is not None:
+            BendY = ET.SubElement(Segment, 'BendY')
+            BendY.text = str(self.BendY)
+        if self.L is not None:
+            L = ET.SubElement(Segment, 'L')
+            L.text = str(self.L)
+        if self.R is not None:
+            R = ET.SubElement(Segment, 'R')
+            R.text = str(self.R)
+        return Segment

@@ -163,3 +163,9 @@ cython_debug/
 230273  .002.pxml
 test.xml
 test.py
+*.xml
+*.pxml
+*.pxml
+2022-08-22-0820-33,420034.pxml
+230273-518.pxml
+230618-33.pxml
