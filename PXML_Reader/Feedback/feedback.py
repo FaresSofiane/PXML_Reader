@@ -1,21 +1,25 @@
 import xml.etree.ElementTree as ET
+from .Description.description import Description
+from .FbVal.fbval import FbVal
 
 class Feedback:
-    GlobalID = None # STR // 0,1
-    ItemType= None # STR // 0,1
-    MessageType = None # STR // 0,1
-    Code = None # STR // 0,1
-    InfoValue = None # STR // 0,1
-    PieceCount = None # INT // 0,1
-    MaterialType = None # STR // 0,1
-    MaterialBatch = None # STR // 0,1
-    MaterialWeight = None # FLOAT // 0,1
-    ProdDate = None # STR // 0,1
-    Machine = None # STR // 0,1
-    Description = [] # Description // n,n
-    FbVal = [] # FbVal // n,n
+
 
     def __init__(self, GlobalID: str = None, ItemType: str = None, MessageType: str = None, Code: str = None, InfoValue: str = None, PieceCount: int = None, MaterialType: str = None, MaterialBatch: str = None, MaterialWeight: float = None, ProdDate: str = None, Machine: str = None, Description: list = [], FbVal: list = []):
+        self.GlobalID = None  # STR // 0,1
+        self.ItemType = None  # STR // 0,1
+        self.MessageType = None  # STR // 0,1
+        self.Code = None  # STR // 0,1
+        self.InfoValue = None  # STR // 0,1
+        self.PieceCount = None  # INT // 0,1
+        self.MaterialType = None  # STR // 0,1
+        self.MaterialBatch = None  # STR // 0,1
+        self.MaterialWeight = None  # FLOAT // 0,1
+        self.ProdDate = None  # STR // 0,1
+        self.Machine = None  # STR // 0,1
+        self.Description = []  # Description // n,n
+        self.FbVal = []  # FbVal // n,n
+
         self.GlobalID = GlobalID
         self.ItemType = ItemType
         self.MessageType = MessageType

@@ -3,12 +3,14 @@ import xml.etree.ElementTree as ET
 
 
 class Shape():
-    GlobalID = None # STR // 0,1
-    Cutout = False # Bool // 0,1
-    RefHeight = None # FLOAT // 0,1
-    SVertex = [] # SVertex // n,n
+
 
     def __init__(self, GlobalID: str = None, Cutout: bool = False, RefHeight: float = None, SVertex: list = []):
+        self.GlobalID = None  # STR // 0,1
+        self.Cutout = False  # Bool // 0,1
+        self.RefHeight = None  # FLOAT // 0,1
+        self.SVertex = []  # SVertex // n,n
+
         self.GlobalID = GlobalID
         if type(Cutout) is bool:
             self.Cutout = bool(Cutout)

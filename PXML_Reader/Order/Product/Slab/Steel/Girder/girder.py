@@ -2,33 +2,35 @@ import xml.etree.ElementTree as ET
 
 
 class Girder:
-    GlobalID = None # STR // 0,1
-    PieceCount = None # INT // 0,1
-    X = None # FLOAT // 0,1
-    Y = None # FLOAT // 0,1
-    Z = None # FLOAT // 0,1
-    GirderName = None # STR // 0,1
-    Length = None # FLOAT // 0,1
-    AngleToX = None # FLOAT // 0,1
-    NoAutoProd = False # BOOL // 0,1
-    Height = None # FLOAT // 0,1
-    TopExcess = None # FLOAT // 0,1
-    BottomExcess = None # FLOAT // 0,1
-    Weight = None # FLOAT // 0,1
-    TopFlangeDiameter = None # FLOAT // 0,1
-    BottomFlangeDiameter = None # FLOAT // 0,1
-    GirderType = None # INT // 0,1
-    MountingType = None # INT // 0,1
-    ArticleNo = None # STR // 0,1
-    Machine = None # STR // 0,1
-    Period = None # FLOAT // 0,1
-    PeriodOffset = None # FLOAT // 0,1
-    Width = None # FLOAT // 0,1
-    AnchorBar = [] # AnchorBar // n,n
-    GirderExt = [] # GirderExt // n,n
-    Section = [] # Section // n,n
+
 
     def __init__(self, GlobalID: str = None, PieceCount: int = None, X: float = None, Y: float = None, Z: float = None, GirderName: str = None, Length: float = None, AngleToX: float = None, NoAutoProd: bool = False, Height: float = None, TopExcess: float = None, BottomExcess: float = None, Weight: float = None, TopFlangeDiameter: float = None, BottomFlangeDiameter: float = None, GirderType: int = None, MountingType: int = None, ArticleNo: str = None, Machine: str = None, Period: float = None, PeriodOffset: float = None, Width: float = None, AnchorBar: list = [], GirderExt: list = [], Section: list = []):
+        self.GlobalID = None  # STR // 0,1
+        self.PieceCount = None  # INT // 0,1
+        self.X = None  # FLOAT // 0,1
+        self.Y = None  # FLOAT // 0,1
+        self.Z = None  # FLOAT // 0,1
+        self.GirderName = None  # STR // 0,1
+        self.Length = None  # FLOAT // 0,1
+        self.AngleToX = None  # FLOAT // 0,1
+        self.NoAutoProd = False  # BOOL // 0,1
+        self.Height = None  # FLOAT // 0,1
+        self.TopExcess = None  # FLOAT // 0,1
+        self.BottomExcess = None  # FLOAT // 0,1
+        self.Weight = None  # FLOAT // 0,1
+        self.TopFlangeDiameter = None  # FLOAT // 0,1
+        self.BottomFlangeDiameter = None  # FLOAT // 0,1
+        self.GirderType = None  # INT // 0,1
+        self.MountingType = None  # INT // 0,1
+        self.ArticleNo = None  # STR // 0,1
+        self.Machine = None  # STR // 0,1
+        self.Period = None  # FLOAT // 0,1
+        self.PeriodOffset = None  # FLOAT // 0,1
+        self.Width = None  # FLOAT // 0,1
+        self.AnchorBar = []  # AnchorBar // n,n
+        self.GirderExt = []  # GirderExt // n,n
+        self.Section = []  # Section // n,n
+
         self.GlobalID = GlobalID
         if type(PieceCount) is int:
             self.PieceCount = int(PieceCount)

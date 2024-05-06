@@ -2,16 +2,19 @@ import xml.etree.ElementTree as ET
 
 
 class GirderExt:
-    GlobalID = None # STR // 0,1
-    Type = None # STR // 0,1
-    Position = None # FLOAT // 0,1
-    Flags = None # INT // 0,1
-    Val0 = None # FLOAT // 0,1
-    Val1 = None # FLOAT // 0,1
-    Val2 = None # FLOAT // 0,1
-    Val3 = None # FLOAT // 0,1
+
 
     def __init__(self, GlobalID: str = None, Type: str = None, Position: float = None, Flags: int = None, Val0: float = None, Val1: float = None, Val2: float = None, Val3: float = None):
+
+        self.GlobalID = None  # STR // 0,1
+        self.Type = None  # STR // 0,1
+        self.Position = None  # FLOAT // 0,1
+        self.Flags = None  # INT // 0,1
+        self.Val0 = None  # FLOAT // 0,1
+        self.Val1 = None  # FLOAT // 0,1
+        self.Val2 = None  # FLOAT // 0,1
+        self.Val3 = None  # FLOAT // 0,1
+
         self.GlobalID = GlobalID
         self.Type = Type
         if type(Flags) is int:

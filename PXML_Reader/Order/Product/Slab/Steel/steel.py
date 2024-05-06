@@ -2,40 +2,40 @@ import xml.etree.ElementTree as ET
 
 
 class Steel:
-    GlobalID = None # STR // 0,1
-    Type = None # STR // 0,1
-    X = None # FLOAT // 0,1
-    Y = None # FLOAT // 0,1
-    Z = None # FLOAT // 0,1
-    RotX = None # FLOAT // 0,1
-    RotY = None # FLOAT // 0,1
-    RotZ = None # FLOAT // 0,1
-    ToTurn = False # BOOL // 0,1
-    StopOnTurningSide = False # BOOL // 0,1
-    Name = None # STR // 0,1
-    GenericInfo01 = None # STR // 0,1
-    GenericInfo02 = None # STR // 0,1
-    GenericInfo03 = None # STR // 0,1
-    GenericInfo04 = None # STR // 0,1
-    GenericInfo05 = None # STR // 0,1
-    GenericInfo06 = None # STR // 0,1
-    MeshType = None # STR // 0,1
-    WeldingDensity = None # INT // 0,1
-    BorderStrength = None # INT // 0,1
-    ProdX = None # FLOAT // 0,1
-    ProdY = None # FLOAT // 0,1
-    ProdZ = None # FLOAT // 0,1
-    ProdRotX = None # FLOAT // 0,1
-    ProdRotY = None # FLOAT // 0,1
-    ProdRotZ = None # FLOAT // 0,1
-    Layer = None # STR // 0,1
-    ObjectID = None # STR // 0,1
-    Bar = [] # Bar // n,n
-    Girder = [] # Girder // n,n
-    Alloc = [] # Alloc // n,n
-    SteelExt = [] # SteelExt // n,n
-
     def __init__(self, GlobalID: str = None, Type: str = None, X: float = None, Y: float = None, Z: float = None, RotX: float = None, RotY: float = None, RotZ: float = None, ToTurn: bool = False, StopOnTurningSide: bool = False, Name: str = None, GenericInfo01: str = None, GenericInfo02: str = None, GenericInfo03: str = None, GenericInfo04: str = None, GenericInfo05: str = None, GenericInfo06: str = None, MeshType: str = None, WeldingDensity: int = None, BorderStrength: int = None, ProdX: float = None, ProdY: float = None, ProdZ: float = None, ProdRotX: float = None, ProdRotY: float = None, ProdRotZ: float = None, Layer: str = None, ObjectID: str = None, Bar: list = [], Girder: list = [], Alloc: list = [], SteelExt: list = []):
+        self.GlobalID = None  # STR // 0,1
+        self.Type = None  # STR // 0,1
+        self.X = None  # FLOAT // 0,1
+        self.Y = None  # FLOAT // 0,1
+        self.Z = None  # FLOAT // 0,1
+        self.RotX = None  # FLOAT // 0,1
+        self.RotY = None  # FLOAT // 0,1
+        self.RotZ = None  # FLOAT // 0,1
+        self.ToTurn = False  # BOOL // 0,1
+        self.StopOnTurningSide = False  # BOOL // 0,1
+        self.Name = None  # STR // 0,1
+        self.GenericInfo01 = None  # STR // 0,1
+        self.GenericInfo02 = None  # STR // 0,1
+        self.GenericInfo03 = None  # STR // 0,1
+        self.GenericInfo04 = None  # STR // 0,1
+        self.GenericInfo05 = None  # STR // 0,1
+        self.GenericInfo06 = None  # STR // 0,1
+        self.MeshType = None  # STR // 0,1
+        self.WeldingDensity = None  # INT // 0,1
+        self.BorderStrength = None  # INT // 0,1
+        self.ProdX = None  # FLOAT // 0,1
+        self.ProdY = None  # FLOAT // 0,1
+        self.ProdZ = None  # FLOAT // 0,1
+        self.ProdRotX = None  # FLOAT // 0,1
+        self.ProdRotY = None  # FLOAT // 0,1
+        self.ProdRotZ = None  # FLOAT // 0,1
+        self.Layer = None  # STR // 0,1
+        self.ObjectID = None  # STR // 0,1
+        self.Bar = []  # Bar // n,n
+        self.Girder = []  # Girder // n,n
+        self.Alloc = []  # Alloc // n,n
+        self.SteelExt = []  # SteelExt // n,n
+
         self.GlobalID = GlobalID
         self.Type = Type
         if type(X) is float:

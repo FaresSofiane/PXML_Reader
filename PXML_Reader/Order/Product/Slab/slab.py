@@ -2,54 +2,7 @@ import xml.etree.ElementTree as ET
 
 
 class Slab():
-    GlobalID = None  # STR // 0,1
-    SlabNo = None  # STR // 0,1
-    PartType = None  # STR // 0,1
-    ProductionAddition = None  # STR // 0,1
-    ProductionWay = None  # STR // 0,1
-    NumberOfMeansOfTransport = None  # STR // 0,1
-    TransportSequence = None  # STR // 0,1
-    PileLevel = None  # STR // 0,1
-    TypeOfUnloading = None  # STR // 0,1
-    MeanOfTransport = None  # STR // 0,1
-    ExpositionClass = None  # STR // 0,1
-    SlabArea = None  # FLOAT // 0,1
-    SlabWeight = None  # FLOAT // 0,1
-    ProductionThickness = None  # FLOAT // 0,1
-    MaxLength = None  # FLOAT // 0,1
-    MaxWidth = None  # FLOAT // 0,1
-    IronProjectionLeft = None  # FLOAT // 0,1
-    IronProjectionRight = None  # FLOAT // 0,1
-    IronProjectionBottom = None  # FLOAT // 0,1
-    IronProjectionTop = None  # FLOAT // 0,1
-    X = None  # FLOAT // 0,1
-    Y = None  # FLOAT // 0,1
-    Z = None  # FLOAT // 0,1
-    RotX = None  # FLOAT // 0,1
-    RotY = None  # FLOAT // 0,1
-    RotZ = None  # FLOAT // 0,1
-    ProdX = None  # FLOAT // 0,1
-    ProdY = None  # FLOAT // 0,1
-    ProdZ = None  # FLOAT // 0,1
-    ProdRotX = None  # FLOAT // 0,1
-    ProdRotY = None  # FLOAT // 0,1
-    ProdRotZ = None  # FLOAT // 0,1
-    OrderPosition = None  # STR // 0,1
-    ProductGroup = None  # STR // 0,1
-    SlabType = None  # STR // 0,1
-    ItemDesignation = None  # STR // 0,1
-    ProjectCoordinates = None  # STR // 0,1
-    PositionInPileX = None  # FLOAT // 0,1
-    PositionInPileY = None  # FLOAT // 0,1
-    PositionInPileZ = None  # FLOAT // 0,1
-    AngleInPile = None  # FLOAT // 0,1
-    GenericInfo01 = None  # STR // 0,1
-    GenericInfo02 = None  # STR // 0,1
-    GenericInfo03 = None  # STR // 0,1
-    GenericInfo04 = None  # STR // 0,1
-    ReforcemInfo = None  # STR // 0,1
-    Outline = []
-    Steel = []  # Steel // n,n
+
 
     def __init__(self, GlobalID: str = None, SlabNo: str = None, PartType: str = None, ProductionAddition: str = None,
                  ProductionWay: str = None, NumberOfMeansOfTransport: str = None, TransportSequence: str = None,
@@ -65,6 +18,54 @@ class Slab():
                  PositionInPileY: float = None, PositionInPileZ: float = None, AngleInPile: float = None,
                  GenericInfo01: str = None, GenericInfo02: str = None, GenericInfo03: str = None,
                  GenericInfo04: str = None, ReforcemInfo: str = None, Outline: list = [], Steel: list = []):
+        self.GlobalID = None  # STR // 0,1
+        self.SlabNo = None  # STR // 0,1
+        self.PartType = None  # STR // 0,1
+        self.ProductionAddition = None  # STR // 0,1
+        self.ProductionWay = None  # STR // 0,1
+        self.NumberOfMeansOfTransport = None  # STR // 0,1
+        self.TransportSequence = None  # STR // 0,1
+        self.PileLevel = None  # STR // 0,1
+        self.TypeOfUnloading = None  # STR // 0,1
+        self.MeanOfTransport = None  # STR // 0,1
+        self.ExpositionClass = None  # STR // 0,1
+        self.SlabArea = None  # FLOAT // 0,1
+        self.SlabWeight = None  # FLOAT // 0,1
+        self.ProductionThickness = None  # FLOAT // 0,1
+        self.MaxLength = None  # FLOAT // 0,1
+        self.MaxWidth = None  # FLOAT // 0,1
+        self.IronProjectionLeft = None  # FLOAT // 0,1
+        self.IronProjectionRight = None  # FLOAT // 0,1
+        self.IronProjectionBottom = None  # FLOAT // 0,1
+        self.IronProjectionTop = None  # FLOAT // 0,1
+        self.X = None  # FLOAT // 0,1
+        self.Y = None  # FLOAT // 0,1
+        self.Z = None  # FLOAT // 0,1
+        self.RotX = None  # FLOAT // 0,1
+        self.RotY = None  # FLOAT // 0,1
+        self.RotZ = None  # FLOAT // 0,1
+        self.ProdX = None  # FLOAT // 0,1
+        self.ProdY = None  # FLOAT // 0,1
+        self.ProdZ = None  # FLOAT // 0,1
+        self.ProdRotX = None  # FLOAT // 0,1
+        self.ProdRotY = None  # FLOAT // 0,1
+        self.ProdRotZ = None  # FLOAT // 0,1
+        self.OrderPosition = None  # STR // 0,1
+        self.ProductGroup = None  # STR // 0,1
+        self.SlabType = None  # STR // 0,1
+        self.ItemDesignation = None  # STR // 0,1
+        self.ProjectCoordinates = None  # STR // 0,1
+        self.PositionInPileX = None  # FLOAT // 0,1
+        self.PositionInPileY = None  # FLOAT // 0,1
+        self.PositionInPileZ = None  # FLOAT // 0,1
+        self.AngleInPile = None  # FLOAT // 0,1
+        self.GenericInfo01 = None  # STR // 0,1
+        self.GenericInfo02 = None  # STR // 0,1
+        self.GenericInfo03 = None  # STR // 0,1
+        self.GenericInfo04 = None  # STR // 0,1
+        self.ReforcemInfo = None  # STR // 0,1
+        self.Outline = []
+        self.Steel = []  # Steel // n,n
         self.GlobalID = GlobalID
         self.SlabNo = SlabNo
         self.PartType = PartType

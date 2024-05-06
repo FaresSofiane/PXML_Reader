@@ -2,14 +2,16 @@ import xml.etree.ElementTree as ET
 
 
 class Segment():
-    GlobalID = None # STR // 0,1
-    Type = None # STR // 0,1
-    RotX = None # FLOAT // 0,1
-    BendY = None # FLOAT // 0,1
-    L = None # FLOAT 0,1
-    R = None # FLOAT 0,1
+
 
     def __init__(self, GlobalID: str = None, Type: str = None, RotX: float = None, BendY: float = None, L: float = None, R: float = None):
+        self.GlobalID = None  # STR // 0,1
+        self.Type = None  # STR // 0,1
+        self.RotX = None  # FLOAT // 0,1
+        self.BendY = None  # FLOAT // 0,1
+        self.L = None  # FLOAT 0,1
+        self.R = None  # FLOAT 0,1
+
         self.GlobalID = GlobalID
         self.Type = Type
         if type(RotX) is float:

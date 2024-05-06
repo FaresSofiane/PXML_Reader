@@ -2,15 +2,18 @@ from .mode import Mode
 import xml.etree.ElementTree as ET
 
 class DocInfo(): # The DocInfo block must be there precisely once per document.
-    GlobalID = ""
-    MajorVersion = None  # INT // Obligatoire 1,1
-    MinorVersion = None  # INT // Obligatoire 1,1
-    Comment = ""  # STR // 0,1
-    ConvertConventions = ""  # STR // 0,1
-    Mode = []  # Object Mode from the module mode. n,n
+
 
     def __init__(self, GlobalID: str, MajorVersion: int, MinorVersion: int, Comment: str, ConvertConventions: str,
                  Mode: list):
+
+        self.GlobalID = ""
+        self.MajorVersion = None  # INT // Obligatoire 1,1
+        self.MinorVersion = None  # INT // Obligatoire 1,1
+        self.Comment = ""  # STR // 0,1
+        self.ConvertConventions = ""  # STR // 0,1
+        self.Mode = []  # Object Mode from the module mode. n,n
+
         self.GlobalID = GlobalID
         if type(MajorVersion) is int and type(MinorVersion) is int:
             self.MajorVersion = int(MajorVersion)

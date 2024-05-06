@@ -2,12 +2,14 @@ from .Region.region import Region
 import xml.etree.ElementTree as ET
 
 class Alloc:
-    GlobalID = None # STR // 0,1
-    Type = None # STR // 0,1
-    GuildingBar = None # INT // 0,1
-    Region = []
+
 
     def __init__(self, GlobalID: str = None, Type: str = None, GuildingBar: int = None, Region = []):
+        self.GlobalID = None  # STR // 0,1
+        self.Type = None  # STR // 0,1
+        self.GuildingBar = None  # INT // 0,1
+        self.Region = []
+
         self.GlobalID = GlobalID
         self.Type = Type
         if type(GuildingBar) is int:

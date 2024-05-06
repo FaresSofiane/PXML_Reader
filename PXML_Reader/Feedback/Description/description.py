@@ -1,10 +1,11 @@
 import xml.etree.ElementTree as ET
 
 class Description:
-    Culture = None # STR // 0,1
-    Text = None # STR // 0,1
+
 
     def __init__(self, Culture: str = None, Text: str = None):
+        self.Culture = None # STR // 0,1
+        self.Text = None # STR // 0,1
         self.Culture = Culture
         self.Text = Text
 

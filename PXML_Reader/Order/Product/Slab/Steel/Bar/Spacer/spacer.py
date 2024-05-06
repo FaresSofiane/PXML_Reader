@@ -2,11 +2,13 @@ import xml.etree.ElementTree as ET
 
 
 class Spacer():
-    GlobalID = None # STR // 0,1
-    Type = None # INT // 0,1
-    Position = None # FLOAT // 0,1
+
 
     def __init__(self, GlobalID: str = None, Type: int = None, Position: float = None):
+        self.GlobalID = None  # STR // 0,1
+        self.Type = None  # INT // 0,1
+        self.Position = None  # FLOAT // 0,1
+
         self.GlobalID = GlobalID
         if type(Type) is int:
             self.Type = int(Type)

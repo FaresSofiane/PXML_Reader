@@ -1,42 +1,44 @@
 import xml.etree.ElementTree as ET
 
 class Product():
-    GlobalID = None
-    ElementNo = None # INT // 0,1
-    ProductType = None # INT // 0,1
-    TotalThickness = None # FLOAT // 0,1
-    DoubleWallsGap = None # FLOAT // 0,1
-    PieceCount = None # INT // 0,1
-    TurnWidth = None # FLOAT // 0,1
-    Comment = None # STR // 0,1
-    RotationPosition = None # FLOAT // 0,1
-    StackNo = None # INT // 0,1
-    StackID = None # INT // 0,1
-    StackingSequence = None # INT // 0,1
-    StackingLevel = None # INT // 0,1
-    StackingX = None # FLOAT // 0,1
-    StackingY = None # FLOAT // 0,1
-    StackingZ = None # FLOAT // 0,1
-    StackingAngle = None # FLOAT // 0,1
-    StackingRotY = None # FLOAT // 0,1
-    StackingRotX = None # FLOAT // 0,1
-    P1X = None # FLOAT // 0,1
-    P1Y = None # FLOAT // 0,1
-    P1Z = None # FLOAT // 0,1
-    P2X = None # FLOAT // 0,1
-    P2Y = None # FLOAT // 0,1
-    P2Z = None # FLOAT // 0,1
-    P3X = None # FLOAT // 0,1
-    P3Y = None # FLOAT // 0,1
-    P3Z = None # FLOAT // 0,1
-    AdditionInfo = None # STR // 0,1
-    UnloadingInfo = None # STR // 0,1
-    TransportInfo = None # STR // 0,1
-    ItemPosition = None # STR // 0,1
-    ElementInfo = [] # Object ElementInfo from the module elementinfo. n,n
-    Slab = [] # Object Slab from the module slab. n,n
+
 
     def __init__(self, GlobalID: str = None, ElementNo: int = None, ProductType: int = None, TotalThickness: float = None, DoubleWallsGap: float = None, PieceCount: int = None, TurnWidth: float = None, Comment: str = None, RotationPosition: float = None, StackNo: int = None, StackID: int = None, StackingSequence: int = None, StackingLevel: int = None, StackingX: float = None, StackingY: float = None, StackingZ: float = None, StackingAngle: float = None, StackingRotY: float = None, StackingRotX: float = None, P1X: float = None, P1Y: float = None, P1Z: float = None, P2X: float = None, P2Y: float = None, P2Z: float = None, P3X: float = None, P3Y: float = None, P3Z: float = None, AdditionInfo: str = None, UnloadingInfo: str = None, TransportInfo: str = None, ItemPosition: str = None, ElementInfo: list = [], Slab: list = []):
+        self.GlobalID = None
+        self.ElementNo = None  # INT // 0,1
+        self.ProductType = None  # INT // 0,1
+        self.TotalThickness = None  # FLOAT // 0,1
+        self.DoubleWallsGap = None  # FLOAT // 0,1
+        self.PieceCount = None  # INT // 0,1
+        self.TurnWidth = None  # FLOAT // 0,1
+        self.Comment = None  # STR // 0,1
+        self.RotationPosition = None  # FLOAT // 0,1
+        self.StackNo = None  # INT // 0,1
+        self.StackID = None  # INT // 0,1
+        self.StackingSequence = None  # INT // 0,1
+        self.StackingLevel = None  # INT // 0,1
+        self.StackingX = None  # FLOAT // 0,1
+        self.StackingY = None  # FLOAT // 0,1
+        self.StackingZ = None  # FLOAT // 0,1
+        self.StackingAngle = None  # FLOAT // 0,1
+        self.StackingRotY = None  # FLOAT // 0,1
+        self.StackingRotX = None  # FLOAT // 0,1
+        self.P1X = None  # FLOAT // 0,1
+        self.P1Y = None  # FLOAT // 0,1
+        self.P1Z = None  # FLOAT // 0,1
+        self.P2X = None  # FLOAT // 0,1
+        self.P2Y = None  # FLOAT // 0,1
+        self.P2Z = None  # FLOAT // 0,1
+        self.P3X = None  # FLOAT // 0,1
+        self.P3Y = None  # FLOAT // 0,1
+        self.P3Z = None  # FLOAT // 0,1
+        self.AdditionInfo = None  # STR // 0,1
+        self.UnloadingInfo = None  # STR // 0,1
+        self.TransportInfo = None  # STR // 0,1
+        self.ItemPosition = None  # STR // 0,1
+        self.ElementInfo = []  # Object ElementInfo from the module elementinfo. n,n
+        self.Slab = []  # Object Slab from the module slab. n,n
+
         self.GlobalID = GlobalID
         self.ElementNo = ElementNo
         self.ProductType = ProductType

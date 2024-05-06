@@ -2,34 +2,36 @@ from .Shape.shape import Shape
 import xml.etree.ElementTree as ET
 
 class Outline():
-    GlobalID = None # STR // 0,1
-    Type = None # STR // 0,1
-    X = None # FLOAT // 0,1
-    Y = None # FLOAT // 0,1
-    Z = None # FLOAT // 0,1
-    RotX = None # FLOAT // 0,1
-    RotY = None # FLOAT // 0,1
-    RotZ = None # FLOAT // 0,1
-    Height = None # FLOAT // 0,1
-    Name = None # STR // 0,1
-    GenericInfo01 = None # STR // 0,1
-    GenericInfo02 = None # STR // 0,1
-    MountingInstruction = None # STR // 0,1
-    MountPartType = None # STR // 0,1
-    MountPartArticle = None # STR // 0,1
-    MountPartIronProjection = None # FLOAT // 0,1
-    MountPartDirection = None # FLOAT // 0,1
-    MountPartLength = None # FLOAT // 0,1
-    MountPartWidth = None # FLOAT // 0,1
-    ConcretingMode = None # STR // 0,1
-    ConcreteQuality = None # STR // 0,1
-    UnitWeight = None # FLOAT // 0,1
-    Volume = None # FLOAT // 0,1
-    Layer = None # STR // 0,1
-    ObjectID = None # STR // 0,1
-    Shape = [] # Shape // n,n
+
 
     def __init__(self, GlobalID: str = None, Type: str = None, X: float = None, Y: float = None, Z: float = None, RotX: float = None, RotY: float = None, RotZ: float = None, Height: float = None, Name: str = None, GenericInfo01: str = None, GenericInfo02: str = None, MountingInstruction: str = None, MountPartType: str = None, MountPartArticle: str = None, MountPartIronProjection: float = None, MountPartDirection: float = None, MountPartLength: float = None, MountPartWidth: float = None, ConcretingMode: str = None, ConcreteQuality: str = None, UnitWeight: float = None, Volume: float = None, Layer: str = None, ObjectID: str = None, Shape: list = []):
+        self.GlobalID = None  # STR // 0,1
+        self.Type = None  # STR // 0,1
+        self.X = None  # FLOAT // 0,1
+        self.Y = None  # FLOAT // 0,1
+        self.Z = None  # FLOAT // 0,1
+        self.RotX = None  # FLOAT // 0,1
+        self.RotY = None  # FLOAT // 0,1
+        self.RotZ = None  # FLOAT // 0,1
+        self.Height = None  # FLOAT // 0,1
+        self.Name = None  # STR // 0,1
+        self.GenericInfo01 = None  # STR // 0,1
+        self.GenericInfo02 = None  # STR // 0,1
+        self.MountingInstruction = None  # STR // 0,1
+        self.MountPartType = None  # STR // 0,1
+        self.MountPartArticle = None  # STR // 0,1
+        self.MountPartIronProjection = None  # FLOAT // 0,1
+        self.MountPartDirection = None  # FLOAT // 0,1
+        self.MountPartLength = None  # FLOAT // 0,1
+        self.MountPartWidth = None  # FLOAT // 0,1
+        self.ConcretingMode = None  # STR // 0,1
+        self.ConcreteQuality = None  # STR // 0,1
+        self.UnitWeight = None  # FLOAT // 0,1
+        self.Volume = None  # FLOAT // 0,1
+        self.Layer = None  # STR // 0,1
+        self.ObjectID = None  # STR // 0,1
+        self.Shape = []  # Shape // n,n
+
         self.GlobalID = GlobalID
         self.Type = Type
         if type(X) is float:

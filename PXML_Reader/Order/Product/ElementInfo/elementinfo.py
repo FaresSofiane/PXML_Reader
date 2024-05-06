@@ -1,20 +1,22 @@
 import xml.etree.ElementTree as ET
 
 class ElementInfo():
-    Type = None # STR // 1,1
-    Inventory = False # BOOL // 1,1
-    GlobalID = None # STR // 1,1
-    Code = None # STR // 1,1
-    Description = None # STR // 0,1
-    ObjectID = None # STR // 0,1
-    PieceCount = None # INT // 0,1
-    Val1 = None # FLOAT // 0,1
-    Val2 = None # FLOAT // 0,1
-    Unit = "m^2" # STR // 0,1
-    Details = None # STR // 0,1
-    ElementInfoVal = [] # Object ElementInfo from the module elementinfo. n,n
+
 
     def __init__(self, Type: str, Inventory: bool, GlobalID: str, Code: str, Description: str, ObjectID: str, PieceCount: int, Val1: float, Val2: float, Unit: str, Details: str, ElementInfoVal: list):
+        self.Type = None  # STR // 1,1
+        self.Inventory = False  # BOOL // 1,1
+        self.GlobalID = None  # STR // 1,1
+        self.Code = None  # STR // 1,1
+        self.Description = None  # STR // 0,1
+        self.ObjectID = None  # STR // 0,1
+        self.PieceCount = None  # INT // 0,1
+        self.Val1 = None  # FLOAT // 0,1
+        self.Val2 = None  # FLOAT // 0,1
+        self.Unit = "m^2"  # STR // 0,1
+        self.Details = None  # STR // 0,1
+        self.ElementInfoVal = []  # Object ElementInfo from the module elementinfo. n,n
+
         self.Type = Type
         self.Inventory = Inventory
         self.GlobalID = GlobalID

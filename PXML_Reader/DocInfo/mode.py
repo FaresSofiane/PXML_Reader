@@ -1,10 +1,11 @@
 import xml.etree.ElementTree as ET
 
 class Mode():
-    ID = None # STR // Obligatoire 1,1
-    Val = True # Bool // 0,1
 
     def __init__(self,ID, Val=None):
+        self.ID = None # STR // Obligatoire 1,1
+        self.Val = True # Bool // 0,1
+
         self.ID = ID
         self.Val = Val
 

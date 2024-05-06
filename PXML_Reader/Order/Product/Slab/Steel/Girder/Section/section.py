@@ -2,12 +2,13 @@ import xml.etree.ElementTree as ET
 
 
 class Section:
-    GlobalID = None # STR // 0,1
-    L = None # FLOAT // 0,1
-    S = None # FLOAT // 0,1
-    F = None # FLOAT // 0,1
+
 
     def __init__(self, GlobalID: str = None, L: float = None, S: float = None, F: float = None):
+        self.GlobalID = None  # STR // 0,1
+        self.L = None  # FLOAT // 0,1
+        self.S = None  # FLOAT // 0,1
+        self.F = None  # FLOAT // 0,1
         self.GlobalID = GlobalID
         if type(L) is float:
             self.L = float(L)

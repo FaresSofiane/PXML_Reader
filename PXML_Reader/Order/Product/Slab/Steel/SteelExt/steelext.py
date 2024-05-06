@@ -1,11 +1,13 @@
 import xml.etree.ElementTree as ET
 
 class SteelExt:
-    GlobalID = None # STR // 0,1
-    Type = None # STR // 0,1
-    Info = None # STR // 0,1
+
 
     def __init__(self, GlobalID: str = None, Type: str = None, Info: str = None):
+        self.GlobalID = None  # STR // 0,1
+        self.Type = None  # STR // 0,1
+        self.Info = None  # STR // 0,1
+
         self.GlobalID = GlobalID
         self.Type = Type
         self.Info = Info

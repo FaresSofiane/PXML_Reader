@@ -1,10 +1,12 @@
 from xml.etree import ElementTree as ET
 
 class ElemInfoVal():
-    Type = None # STR // 0,1
-    V = None # STR // 0,1
+
 
     def __init__(self, Type: str, V: str):
+        self.Type = None  # STR // 0,1
+        self.V = None  # STR // 0,1
+
         self.Type = Type
         self.V = V
 

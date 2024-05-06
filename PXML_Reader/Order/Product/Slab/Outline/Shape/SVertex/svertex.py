@@ -1,16 +1,18 @@
 import xml.etree.ElementTree as ET
 
 class SVertex():
-    GlobalID = None # STR // 0,1
-    X = None # FLOAT // 0,1
-    Y = None # FLOAT // 0,1
-    Bulge = None # FLOAT // 0,1
-    LineAttribute = None # STR // 0,1
-    Profile = None # STR // 0,1
-    DX = None # FLOAT // 0,1
-    DY = None # FLOAT // 0,1
+
 
     def __init__(self, GlobalID: str = None, X: float = None, Y: float = None, Bulge: float = None, LineAttribute: str = None, Profile: str = None, DX: float = None, DY: float = None):
+        self.GlobalID = None  # STR // 0,1
+        self.X = None  # FLOAT // 0,1
+        self.Y = None  # FLOAT // 0,1
+        self.Bulge = None  # FLOAT // 0,1
+        self.LineAttribute = None  # STR // 0,1
+        self.Profile = None  # STR // 0,1
+        self.DX = None  # FLOAT // 0,1
+        self.DY = None  # FLOAT // 0,1
+
         self.GlobalID = GlobalID
         if type(X) is float:
             self.X = float(X)

@@ -4,29 +4,31 @@ from .Segment.segment import Segment
 import xml.etree.ElementTree as ET
 
 class Bar:
-    GlobalID = None # STR // 0,1
-    ShapeMode = None # STR // 0,1
-    ReinforcementType = None # STR // 0,1
-    SteelQuality = None # STR // 0,1
-    PieceCount = None # INT // 0,1
-    Diameter = None # FLOAT // 0,1
-    X = None # FLOAT // 0,1
-    Y = None # FLOAT // 0,1
-    Z = None # FLOAT // 0,1
-    RotZ = None # FLOAT // 0,1
-    ArticleNo = None # STR // 0,1
-    NoAutoProd = False # BOOL // 0,1
-    ExtIronWeight = None # FLOAT // 0,1
-    Bin = None # STR // 0,1
-    Pos = None # STR // 0,1
-    Note = None # STR // 0,1
-    Machine = None # STR // 0,1
-    BendingDevice = None # STR // 0,1
-    Spacer = [] # Spacer // n,n
-    WeldingPoint = [] # WeldingPoint // n,n
-    Segment = [] # Segment // n,n
+
 
     def __init__(self, GlobalID: str = None,ShapeMode:str = None, ReinforcementType: str = None, SteelQuality: str = None, PieceCount: int = None, Diameter: float = None, X: float = None, Y: float = None, Z: float = None, RotZ: float = None, ArticleNo: str = None, NoAutoProd: bool = False, ExtIronWeight: float = None, Bin: str = None, Pos: str = None, Note: str = None, Machine: str = None, BendingDevice: str = None, Spacer: list = [], WeldingPoint: list = [], Segment: list = []):
+        self.GlobalID = None  # STR // 0,1
+        self.ShapeMode = None  # STR // 0,1
+        self.ReinforcementType = None  # STR // 0,1
+        self.SteelQuality = None  # STR // 0,1
+        self.PieceCount = None  # INT // 0,1
+        self.Diameter = None  # FLOAT // 0,1
+        self.X = None  # FLOAT // 0,1
+        self.Y = None  # FLOAT // 0,1
+        self.Z = None  # FLOAT // 0,1
+        self.RotZ = None  # FLOAT // 0,1
+        self.ArticleNo = None  # STR // 0,1
+        self.NoAutoProd = False  # BOOL // 0,1
+        self.ExtIronWeight = None  # FLOAT // 0,1
+        self.Bin = None  # STR // 0,1
+        self.Pos = None  # STR // 0,1
+        self.Note = None  # STR // 0,1
+        self.Machine = None  # STR // 0,1
+        self.BendingDevice = None  # STR // 0,1
+        self.Spacer = []  # Spacer // n,n
+        self.WeldingPoint = []  # WeldingPoint // n,n
+        self.Segment = []  # Segment // n,n
+
         self.GlobalID = GlobalID
         self.ShapeMode = ShapeMode
         self.ReinforcementType = ReinforcementType

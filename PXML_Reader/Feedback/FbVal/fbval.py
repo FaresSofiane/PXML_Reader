@@ -1,10 +1,10 @@
 import xml.etree.ElementTree as ET
 
 class FbVal:
-    T = None # STR // 0,1
-    V = None # STR // 0,1
-
     def __init__(self, T: str = None, V: str = None):
+        self.T = None
+        self.V = None
+
         self.T = T
         self.V = V
 

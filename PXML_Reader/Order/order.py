@@ -1,4 +1,6 @@
 import xml.etree.ElementTree as ET
+from .orderinfo import OrderInfo
+from .Product.product import Product
 
 class Order():
 

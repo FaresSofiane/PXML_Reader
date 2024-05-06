@@ -2,14 +2,16 @@ import xml.etree.ElementTree as ET
 
 
 class WeldingPoint():
-    GlobalId = None # STR // 0,1
-    WeldingOutput = None # FLOAT // 0,1
-    Position = None # FLOAT // 0,1
-    WeldingPointType = None # INT // 0,1
-    WeldingPrgNo = None # INT // 0,1
-    GroupID = None # STR // 0,1
+
 
     def __init__(self, GlobalId: str = None, WeldingOutput: float = None, Position: float = None, WeldingPointType: int = None, WeldingPrgNo: int = None, GroupID: str = None):
+
+        self.GlobalId = None  # STR // 0,1
+        self.WeldingOutput = None  # FLOAT // 0,1
+        self.Position = None  # FLOAT // 0,1
+        self.WeldingPointType = None  # INT // 0,1
+        self.WeldingPrgNo = None  # INT // 0,1
+        self.GroupID = None  # STR // 0,1
         self.GlobalId = GlobalId
         if type(WeldingOutput) is float:
             self.WeldingOutput = float(WeldingOutput)

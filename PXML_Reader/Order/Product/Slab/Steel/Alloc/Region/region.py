@@ -2,14 +2,16 @@ import xml.etree.ElementTree as ET
 
 
 class Region:
-    GlobalID = None # STR // 0,1
-    IntervalCount = None # INT // 0,1
-    Pitch = None # FLOAT // 0,1
-    IncludeBegin = False # BOOL // 0,1
-    IncludeEnd = False # BOOL // 0,1
-    RefIndex = None # INT // 0,1
+
 
     def __init__(self, GlobalID: str = None, IntervalCount: int = None, Pitch: float = None, IncludeBegin: bool = False, IncludeEnd: bool = False, RefIndex: int = None):
+        self.GlobalID = None  # STR // 0,1
+        self.IntervalCount = None  # INT // 0,1
+        self.Pitch = None  # FLOAT // 0,1
+        self.IncludeBegin = False  # BOOL // 0,1
+        self.IncludeEnd = False  # BOOL // 0,1
+        self.RefIndex = None  # INT // 0,1
+
         self.GlobalID = GlobalID
         if type(IntervalCount) is int:
             self.IntervalCount = int(IntervalCount)
