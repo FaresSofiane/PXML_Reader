@@ -211,7 +211,7 @@ class pxml:
                                 for f in e.findall(ns + "Segment"):
                                     temp_Segment.append(segment.Segment(
                                         GlobalID=f.get("GlobalID"),
-                                        Type=f.find(ns + "Type").text if f.find(ns + "Type") is not None else None,
+                                        Type=f.get("Type"),
                                         RotX=f.find(ns + "RotX").text if f.find(ns + "RotX") is not None else None,
                                         BendY=f.find(ns + "BendY").text if f.find(ns + "BendY") is not None else None,
                                         L=f.find(ns + "L").text if f.find(ns + "L") is not None else None,
@@ -557,7 +557,6 @@ class pxml:
                                                    Outline=temp_Outline,
                                                    Steel=temp_Steel))
 
-                    print("ElementNo: " + b.find(ns + "ElementNo").text if b.find(ns + "ElementNo") is not None else None)
                     temp_Product.append(product.Product(GlobalID=b.get("GlobalID"),
                                                         ElementNo=b.find(
                                                             ns + "ElementNo").text if b.find(
