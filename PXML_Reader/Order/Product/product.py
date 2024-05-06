@@ -56,10 +56,12 @@ class Product():
         else:
             if DoubleWallsGap is None:
                 self.DoubleWallsGap = None
-            try:
-                self.DoubleWallsGap = float(DoubleWallsGap)
-            except:
-                raise TypeError("DoubleWallsGap must be a float")
+            else:
+                try:
+                    self.DoubleWallsGap = float(DoubleWallsGap)
+                except:
+
+                    raise TypeError(f"DoubleWallsGap must be a float")
 
         if type(PieceCount) is int:
             self.PieceCount = int(PieceCount)

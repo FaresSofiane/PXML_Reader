@@ -1,8 +1,8 @@
 from .mode import Mode
 import xml.etree.ElementTree as ET
 
-class DocInfo(): # The DocInfo block must be there precisely once per document.
 
+class DocInfo():  # The DocInfo block must be there precisely once per document.
 
     def __init__(self, GlobalID: str, MajorVersion: int, MinorVersion: int, Comment: str, ConvertConventions: str,
                  Mode: list):
@@ -76,9 +76,9 @@ class DocInfo(): # The DocInfo block must be there precisely once per document.
     def __xml__(self):
         docinfo = ET.Element('DocInfo')
         MajorVersion = ET.SubElement(docinfo, 'MajorVersion')
-        MajorVersion.text = str(self.MajorVersion)
+        MajorVersion.text = str(int(self.MajorVersion))
         MinorVersion = ET.SubElement(docinfo, 'MinorVersion')
-        MinorVersion.text = str(self.MinorVersion)
+        MinorVersion.text = str(int(self.MinorVersion))
         if self.Comment is not None:
             Comment = ET.SubElement(docinfo, 'Comment')
             Comment.text = self.Comment
