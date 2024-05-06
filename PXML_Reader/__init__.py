@@ -43,11 +43,12 @@ from .Feedback.FbVal import fbval
 # Last updated on 2024-04-25
 
 class pxml:
-    DocInfo = None  # Object DocInfo from the module docinfo. 1,1
-    Order = []  # Object Order from the module order. n,n
-    Feedback = []  # Object Feedback from the module feedback. n,n
 
     def __init__(self, fichier_pxml: str):
+        self.DocInfo = None
+        self.Order = []
+        self.Feedback = []
+
         tree = ET.parse(fichier_pxml, ET.XMLParser(encoding='utf-8'))
         root = tree.getroot()
         ns = root.tag.replace("PXML_Document", "")
@@ -556,6 +557,7 @@ class pxml:
                                                    Outline=temp_Outline,
                                                    Steel=temp_Steel))
 
+                    print("ElementNo: " + b.find(ns + "ElementNo").text if b.find(ns + "ElementNo") is not None else None)
                     temp_Product.append(product.Product(GlobalID=b.get("GlobalID"),
                                                         ElementNo=b.find(
                                                             ns + "ElementNo").text if b.find(
@@ -758,8 +760,6 @@ class pxml:
                                                        Machine=(root[ae].find(ns + "Machine").text if root[ae].find(
                                                            ns + "Machine") is not None else None),
                                                        Description=temp_description, FbVal=temp_FbVal))
-
-
 
         if self.DocInfo is None:
             raise ValueError("No DocInfo found in PXML file. Read https://www.pxml.eu/PXML-Specification-1.3-EN.pdf")

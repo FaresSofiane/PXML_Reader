@@ -1,51 +1,55 @@
 import xml.etree.ElementTree as ET
 
 class Order():
-    GlobalID = "" # STR // Obligatoire 1,1
-    OrderNo = None # INT // 0,1
-    Structure = None # STR // 0,1
-    Building = None # STR // 0,1
-    Storey = None # STR // 0,1
-    SubStorey = None # STR // 0,1
-    Component = None # STR // 0,1
-    DrawingNo = None # STR // 0,1
-    DrawingDate = None # STR // 0,1
-    DrawingRevision = None # STR // 0,1
-    DrawingAuthor = None # STR // 0,1
-    ErpProjectUnit = None # STR // 0,1
-    DeliveryDate = None # STR // 0,1
-    GenericOrderInfo01 = None # STR // 0,1
-    GenericOrderInfo02 = None # STR // 0,1
-    GenericOrderInfo03 = None # STR // 0,1
-    GenericOrderInfo04 = None # STR // 0,1
-    GenericOrderInfo05 = None # STR // 0,1
-    GenericOrderInfo06 = None # STR // 0,1
-    GenericOrderInfo07 = None # STR // 0,1
-    GenericOrderInfo08 = None # STR // 0,1
-    GenericOrderInfo09 = None # STR // 0,1
-    GenericOrderInfo10 = None # STR // 0,1
-    GenericOrderInfo11 = None # STR // 0,1
-    GenericOrderInfo12 = None # STR // 0,1
-    GenericOrderInfo13 = None # STR // 0,1
-    GenericOrderInfo14 = None # STR // 0,1
-    GenericOrderInfo15 = None # STR // 0,1
-    GenericOrderInfo16 = None # STR // 0,1
-    GenericOrderInfo17 = None # STR // 0,1
-    GenericOrderInfo18 = None # STR // 0,1
-    GenericOrderInfo19 = None # STR // 0,1
-    GenericOrderInfo20 = None # STR // 0,1
-    Comment = None # STR // 0,1
-    OrderArea = None # FLOAT // 0,1
-    ImportSource = None # STR // 0,1
-    ImportSourceType = None # STR // 0,1
-    ApplicationName = None # STR // 0,1
-    ApplicationGUID = None # STR // 0,1
-    ApplicationVersion = None # STR // 0,1
-    OrderInfo = []# Object OrderInfo from the module orderinfo. n,n
-    Product = []# Object Product from the module product. n,n
+
 
     def __init__(self, GlobalID: str, OrderNo: int, Structure: str, Building: str, Storey: str, SubStorey: str, Component: str, DrawingNo: str, DrawingDate: str, DrawingRevision: str, DrawingAuthor: str, ErpProjectUnit: str, DeliveryDate: str, GenericOrderInfo01: str, GenericOrderInfo02: str, GenericOrderInfo03: str, GenericOrderInfo04: str, GenericOrderInfo05: str, GenericOrderInfo06: str, GenericOrderInfo07: str, GenericOrderInfo08: str, GenericOrderInfo09: str, GenericOrderInfo10: str, GenericOrderInfo11: str, GenericOrderInfo12: str, GenericOrderInfo13: str, GenericOrderInfo14: str, GenericOrderInfo15: str, GenericOrderInfo16: str, GenericOrderInfo17: str, GenericOrderInfo18: str, GenericOrderInfo19: str, GenericOrderInfo20: str, Comment: str, OrderArea: float, ImportSource: str, ImportSourceType: str, ApplicationName: str, ApplicationGUID: str, ApplicationVersion: str, OrderInfo: list, Product: list):
+        self.GlobalID = None  # STR // Obligatoire 1,1
+        self.OrderNo = None  # INT // 0,1
+        self.Structure = None  # STR // 0,1
+        self.Building = None  # STR // 0,1
+        self.Storey = None  # STR // 0,1
+        self.SubStorey = None  # STR // 0,1
+        self.Component = None  # STR // 0,1
+        self.DrawingNo = None  # STR // 0,1
+        self.DrawingDate = None  # STR // 0,1
+        self.DrawingRevision = None  # STR // 0,1
+        self.DrawingAuthor = None  # STR // 0,1
+        self.ErpProjectUnit = None  # STR // 0,1
+        self.DeliveryDate = None  # STR // 0,1
+        self.GenericOrderInfo01 = None  # STR // 0,1
+        self.GenericOrderInfo02 = None  # STR // 0,1
+        self.GenericOrderInfo03 = None  # STR // 0,1
+        self.GenericOrderInfo04 = None  # STR // 0,1
+        self.GenericOrderInfo05 = None  # STR // 0,1
+        self.GenericOrderInfo06 = None  # STR // 0,1
+        self.GenericOrderInfo07 = None  # STR // 0,1
+        self.GenericOrderInfo08 = None  # STR // 0,1
+        self.GenericOrderInfo09 = None  # STR // 0,1
+        self.GenericOrderInfo10 = None  # STR // 0,1
+        self.GenericOrderInfo11 = None  # STR // 0,1
+        self.GenericOrderInfo12 = None  # STR // 0,1
+        self.GenericOrderInfo13 = None  # STR // 0,1
+        self.GenericOrderInfo14 = None  # STR // 0,1
+        self.GenericOrderInfo15 = None  # STR // 0,1
+        self.GenericOrderInfo16 = None  # STR // 0,1
+        self.GenericOrderInfo17 = None  # STR // 0,1
+        self.GenericOrderInfo18 = None  # STR // 0,1
+        self.GenericOrderInfo19 = None  # STR // 0,1
+        self.GenericOrderInfo20 = None  # STR // 0,1
+        self.Comment = None  # STR // 0,1
+        self.OrderArea = None  # FLOAT // 0,1
+        self.ImportSource = None  # STR // 0,1
+        self.ImportSourceType = None  # STR // 0,1
+        self.ApplicationName = None  # STR // 0,1
+        self.ApplicationGUID = None  # STR // 0,1
+        self.ApplicationVersion = None  # STR // 0,1
+        self.OrderInfo = []  # Object OrderInfo from the module orderinfo. n,n
+        self.Product = []  # Object Product from the module product. n,n
+
         self.GlobalID = GlobalID
+        if self.GlobalID is None:
+            raise ValueError("GlobalID is required")
         self.OrderNo = OrderNo
         self.Structure = Structure
         self.Building = Building

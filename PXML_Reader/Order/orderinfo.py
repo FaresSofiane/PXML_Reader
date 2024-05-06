@@ -2,12 +2,14 @@ from .orderinfoval import OrderInfoVal
 from xml.etree import ElementTree as ET
 
 class OrderInfo():
-    Type = None # STR // 0,1
-    GlobalID = None # STR // 0,1
-    Code = None # STR // 0,1
-    OrderInfoVal = [] # Object OrderInfoVal from the module orderinfoval. n,n
+
 
     def __init__(self, Type: str, GlobalID: str, Code: str, OrderInfoVal: list):
+        self.Type = None  # STR // 0,1
+        self.GlobalID = None  # STR // 0,1
+        self.Code = None  # STR // 0,1
+        self.OrderInfoVal = []  # Object OrderInfoVal from the module orderinfoval. n,n
+
         self.Type = Type
         self.GlobalID = GlobalID
         self.Code = Code

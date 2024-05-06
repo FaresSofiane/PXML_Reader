@@ -1,12 +1,13 @@
 from xml.etree import ElementTree as ET
 
 class OrderInfoVal():
-    Type = None # STR // 0,1
-    V = None # STR // 0,1
-    U = None # STR // 0,1
-    Culture = "en" # STR // 0,1
+
 
     def __init__(self, Type: str, V: str, U: str, Culture: str):
+        self.Type = None  # STR // 0,1
+        self.V = None  # STR // 0,1
+        self.U = None  # STR // 0,1
+        self.Culture = "en"  # STR // 0,1
         self.Type = Type
         self.V = V
         self.U = U
