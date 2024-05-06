@@ -48,7 +48,6 @@ class pxml:
         self.DocInfo = None
         self.Order = []
         self.Feedback = []
-
         tree = ET.parse(fichier_pxml, ET.XMLParser(encoding='utf-8'))
         root = tree.getroot()
         ns = root.tag.replace("PXML_Document", "")
@@ -480,8 +479,8 @@ class pxml:
                                                        ns + "PileLevel") is not None else None,
                                                    TypeOfUnloading=c.find(ns + "TypeOfUnloading").text if c.find(
                                                        ns + "TypeOfUnloading") is not None else None,
-                                                   MeanOfTransport=c.find(ns + "MeanOfTransport").text if c.find(
-                                                       ns + "MeanOfTransport") is not None else None,
+                                                   MeansOfTransport=c.find(ns + "MeansOfTransport").text if c.find(
+                                                       ns + "MeansOfTransport") is not None else None,
                                                    ExpositionClass=c.find(ns + "ExpositionClass").text if c.find(
                                                        ns + "ExpositionClass") is not None else None,
                                                    SlabArea=c.find(ns + "SlabArea").text if c.find(

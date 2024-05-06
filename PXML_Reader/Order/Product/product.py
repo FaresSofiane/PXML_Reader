@@ -47,10 +47,11 @@ class Product():
         else:
             if TotalThickness is None:
                 self.TotalThickness = None
-            try:
-                self.TotalThickness = float(TotalThickness)
-            except:
-                raise TypeError("TotalThickness must be a float")
+            else:
+                try:
+                    self.TotalThickness = float(TotalThickness)
+                except:
+                    raise TypeError("TotalThickness must be a float")
         if type(DoubleWallsGap) is float:
             self.DoubleWallsGap = float(DoubleWallsGap)
         else:

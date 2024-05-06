@@ -6,7 +6,7 @@ class Slab():
 
     def __init__(self, GlobalID: str = None, SlabNo: str = None, PartType: str = None, ProductionAddition: str = None,
                  ProductionWay: str = None, NumberOfMeansOfTransport: str = None, TransportSequence: str = None,
-                 PileLevel: str = None, TypeOfUnloading: str = None, MeanOfTransport: str = None,
+                 PileLevel: str = None, TypeOfUnloading: str = None, MeansOfTransport: str = None,
                  ExpositionClass: str = None, SlabArea: float = None, SlabWeight: float = None,
                  ProductionThickness: float = None, MaxLength: float = None, MaxWidth: float = None,
                  IronProjectionLeft: float = None, IronProjectionRight: float = None,
@@ -27,7 +27,7 @@ class Slab():
         self.TransportSequence = None  # STR // 0,1
         self.PileLevel = None  # STR // 0,1
         self.TypeOfUnloading = None  # STR // 0,1
-        self.MeanOfTransport = None  # STR // 0,1
+        self.MeansOfTransport = None  # STR // 0,1
         self.ExpositionClass = None  # STR // 0,1
         self.SlabArea = None  # FLOAT // 0,1
         self.SlabWeight = None  # FLOAT // 0,1
@@ -75,7 +75,8 @@ class Slab():
         self.TransportSequence = TransportSequence
         self.PileLevel = PileLevel
         self.TypeOfUnloading = TypeOfUnloading
-        self.MeanOfTransport = MeanOfTransport
+        self.MeansOfTransport = MeansOfTransport
+        print("MeansOfTransport",MeansOfTransport)
         self.ExpositionClass = ExpositionClass
         if type(SlabArea) is float:
             self.SlabArea = float(SlabArea)
@@ -367,8 +368,8 @@ class Slab():
     def get_TypeOfUnloading(self):
         return self.TypeOfUnloading
 
-    def get_MeanOfTransport(self):
-        return self.MeanOfTransport
+    def get_MeansOfTransport(self):
+        return self.MeansOfTransport
 
     def get_ExpositionClass(self):
         return self.ExpositionClass
@@ -511,8 +512,8 @@ class Slab():
     def set_TypeOfUnloading(self, TypeOfUnloading: str):
         self.TypeOfUnloading = TypeOfUnloading
 
-    def set_MeanOfTransport(self, MeanOfTransport: str):
-        self.MeanOfTransport = MeanOfTransport
+    def set_MeansOfTransport(self, MeansOfTransport: str):
+        self.MeansOfTransport = MeansOfTransport
 
     def set_ExpositionClass(self, ExpositionClass: str):
         self.ExpositionClass = ExpositionClass
@@ -635,7 +636,7 @@ class Slab():
         self.Steel.append(Steel)
 
     def __str__(self):
-        return f'{self.GlobalID} {self.SlabNo} {self.PartType} {self.ProductionAddition} {self.ProductionWay} {self.NumberOfMeansOfTransport} {self.TransportSequence} {self.PileLevel} {self.TypeOfUnloading} {self.MeanOfTransport} {self.ExpositionClass} {self.SlabArea} {self.SlabWeight} {self.ProductionThickness} {self.MaxLength} {self.MaxWidth} {self.IronProjectionLeft} {self.IronProjectionRight} {self.IronProjectionBottom} {self.IronProjectionTop} {self.X} {self.Y} {self.Z} {self.RotX} {self.RotY} {self.RotZ} {self.ProdX} {self.ProdY} {self.ProdZ} {self.ProdRotX} {self.ProdRotY} {self.ProdRotZ} {self.OrderPosition} {self.ProductGroup} {self.SlabType} {self.ItemDesignation} {self.ProjectCoordinates} {self.PositionInPileX} {self.PositionInPileY} {self.PositionInPileZ} {self.AngleInPile} {self.GenericInfo01} {self.GenericInfo02} {self.GenericInfo03} {self.GenericInfo04} {self.ReforcemInfo} {self.Outline} {self.Steel}'
+        return f'{self.GlobalID} {self.SlabNo} {self.PartType} {self.ProductionAddition} {self.ProductionWay} {self.NumberOfMeansOfTransport} {self.TransportSequence} {self.PileLevel} {self.TypeOfUnloading} {self.MeansOfTransport} {self.ExpositionClass} {self.SlabArea} {self.SlabWeight} {self.ProductionThickness} {self.MaxLength} {self.MaxWidth} {self.IronProjectionLeft} {self.IronProjectionRight} {self.IronProjectionBottom} {self.IronProjectionTop} {self.X} {self.Y} {self.Z} {self.RotX} {self.RotY} {self.RotZ} {self.ProdX} {self.ProdY} {self.ProdZ} {self.ProdRotX} {self.ProdRotY} {self.ProdRotZ} {self.OrderPosition} {self.ProductGroup} {self.SlabType} {self.ItemDesignation} {self.ProjectCoordinates} {self.PositionInPileX} {self.PositionInPileY} {self.PositionInPileZ} {self.AngleInPile} {self.GenericInfo01} {self.GenericInfo02} {self.GenericInfo03} {self.GenericInfo04} {self.ReforcemInfo} {self.Outline} {self.Steel}'
 
     def __xml__(self):
         Slab = ET.Element('Slab')
@@ -667,9 +668,9 @@ class Slab():
         if self.TypeOfUnloading is not None:
             TypeOfUnloading = ET.SubElement(Slab, "TypeOfUnloading")
             TypeOfUnloading.text = self.TypeOfUnloading
-        if self.MeanOfTransport is not None:
-            MeanOfTransport = ET.SubElement(Slab, "MeanOfTransport")
-            MeanOfTransport.text = self.MeanOfTransport
+        if self.MeansOfTransport is not None:
+            MeansOfTransport = ET.SubElement(Slab, "MeansOfTransport")
+            MeansOfTransport.text = self.MeansOfTransport
         if self.ExpositionClass is not None:
             ExpositionClass = ET.SubElement(Slab, "ExpositionClass")
             ExpositionClass.text = self.ExpositionClass

@@ -50,8 +50,7 @@ class Order():
         self.Product = []  # Object Product from the module product. n,n
 
         self.GlobalID = GlobalID
-        if self.GlobalID is None:
-            raise ValueError("GlobalID is required")
+
         self.OrderNo = OrderNo
         self.Structure = Structure
         self.Building = Building
@@ -487,7 +486,8 @@ class Order():
 
     def __xml__(self):
         Order = ET.Element("Order")
-        Order.set("GlobalID", self.GlobalID)
+        if self.GlobalID is not None:
+            Order.set("GlobalID", self.GlobalID)
         if self.OrderNo is not None:
             OrderNo = ET.SubElement(Order, "OrderNo")
             OrderNo.text = str(self.OrderNo)
