@@ -71,7 +71,7 @@ class pxml:
 
                 for b in range(len(root[ae])):
                     if root[ae][b].tag.replace(ns, "") == "Mode":
-                        Mode.append(mode.Mode(root[ae][b].find(ns + "Name").text, root[ae][b].find(ns + "Value").text))
+                        Mode.append(mode.Mode(root[ae][b].find(ns + "ID").text, root[ae][b].find(ns + "Val").text))
 
                 self.DocInfo = docinfo.DocInfo(GlobalID=GlobalID, MajorVersion=int(MajorVersion),
                                                MinorVersion=int(MinorVersion), Comment=Comment,

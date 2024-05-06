@@ -649,7 +649,6 @@ class Slab():
             PartType = ET.SubElement(Slab, "PartType")
             PartType.text = self.PartType
 
-        print(f'ProductionAddition: {self.ProductionAddition}')
         if self.ProductionAddition is not None:
             ProductionAddition = ET.SubElement(Slab, "ProductionAddition")
             ProductionAddition.text = self.ProductionAddition
