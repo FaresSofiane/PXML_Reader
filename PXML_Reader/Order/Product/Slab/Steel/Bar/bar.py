@@ -297,7 +297,7 @@ class Bar:
             ArticleNo.text = str(self.ArticleNo)
         if self.NoAutoProd is not None:
             NoAutoProd = ET.SubElement(bar,"NoAutoProd")
-            NoAutoProd.text = str(float(self.NoAutoProd)).lower()
+            NoAutoProd.text = str(bool(self.NoAutoProd)).lower()
         if self.ExtIronWeight is not None:
             ExtIronWeight = ET.SubElement(bar,"ExtIronWeight")
             ExtIronWeight.text = str(float(self.ExtIronWeight))
