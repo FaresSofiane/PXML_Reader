@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from lib2to3.pgen2.tokenize import double3prog
 
 
 class Segment():
@@ -102,14 +103,14 @@ class Segment():
             Segment.set('Type', self.Type)
         if self.RotX is not None:
             RotX = ET.SubElement(Segment, 'RotX')
-            RotX.text = str(self.RotX)
+            RotX.text = str(float(self.RotX))
         if self.BendY is not None:
             BendY = ET.SubElement(Segment, 'BendY')
-            BendY.text = str(self.BendY)
+            BendY.text = str(float(self.BendY))
         if self.L is not None:
             L = ET.SubElement(Segment, 'L')
-            L.text = str(self.L)
+            L.text = str(float(self.L))
         if self.R is not None:
             R = ET.SubElement(Segment, 'R')
-            R.text = str(self.R)
+            R.text = str(float(self.R))
         return Segment

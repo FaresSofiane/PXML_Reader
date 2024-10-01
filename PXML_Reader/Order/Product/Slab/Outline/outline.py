@@ -31,7 +31,6 @@ class Outline():
         self.Layer = None  # STR // 0,1
         self.ObjectID = None  # STR // 0,1
         self.Shape = []  # Shape // n,n
-
         self.GlobalID = GlobalID
         self.Type = Type
         if type(X) is float:
@@ -347,25 +346,25 @@ class Outline():
         Outline.set('Type', str(self.Type))
         if self.X is not None:
             X = ET.SubElement(Outline, 'X')
-            X.text = str(self.X)
+            X.text = str(float(self.X))
         if self.Y is not None:
             Y = ET.SubElement(Outline, 'Y')
-            Y.text = str(self.Y)
+            Y.text = str(float(self.Y))
         if self.Z is not None:
             Z = ET.SubElement(Outline, 'Z')
-            Z.text = str(self.Z)
+            Z.text = str(float(self.Z))
         if self.RotX is not None:
             RotX = ET.SubElement(Outline, 'RotX')
-            RotX.text = str(self.RotX)
+            RotX.text = str(float(self.RotX))
         if self.RotY is not None:
             RotY = ET.SubElement(Outline, 'RotY')
-            RotY.text = str(self.RotY)
+            RotY.text = str(float(self.RotY))
         if self.RotZ is not None:
             RotZ = ET.SubElement(Outline, 'RotZ')
-            RotZ.text = str(self.RotZ)
+            RotZ.text = str(float(self.RotZ))
         if self.Height is not None:
             Height = ET.SubElement(Outline, 'Height')
-            Height.text = str(self.Height)
+            Height.text = str(float(self.Height))
         if self.Name is not None:
             Name = ET.SubElement(Outline, 'Name')
             Name.text = str(self.Name)
@@ -386,16 +385,16 @@ class Outline():
             MountPartArticle.text = str(self.MountPartArticle)
         if self.MountPartIronProjection is not None:
             MountPartIronProjection = ET.SubElement(Outline, 'MountPartIronProjection')
-            MountPartIronProjection.text = str(self.MountPartIronProjection)
+            MountPartIronProjection.text = str(float(self.MountPartIronProjection))
         if self.MountPartDirection is not None:
             MountPartDirection = ET.SubElement(Outline, 'MountPartDirection')
-            MountPartDirection.text = str(self.MountPartDirection)
+            MountPartDirection.text = str(float(self.MountPartDirection))
         if self.MountPartLength is not None:
             MountPartLength = ET.SubElement(Outline, 'MountPartLength')
-            MountPartLength.text = str(self.MountPartLength)
+            MountPartLength.text = str(float(self.MountPartLength))
         if self.MountPartWidth is not None:
             MountPartWidth = ET.SubElement(Outline, 'MountPartWidth')
-            MountPartWidth.text = str(self.MountPartWidth)
+            MountPartWidth.text = str(float(self.MountPartWidth))
         if self.ConcretingMode is not None:
             ConcretingMode = ET.SubElement(Outline, 'ConcretingMode')
             ConcretingMode.text = str(self.ConcretingMode)
@@ -404,10 +403,10 @@ class Outline():
             ConcreteQuality.text = str(self.ConcreteQuality)
         if self.UnitWeight is not None:
             UnitWeight = ET.SubElement(Outline, 'UnitWeight')
-            UnitWeight.text = str(self.UnitWeight)
+            UnitWeight.text = str(float(self.UnitWeight))
         if self.Volume is not None:
             Volume = ET.SubElement(Outline, 'Volume')
-            Volume.text = str(self.Volume)
+            Volume.text = str(float(self.Volume))
         if self.Layer is not None:
             Layer = ET.SubElement(Outline, 'Layer')
             Layer.text = str(self.Layer)

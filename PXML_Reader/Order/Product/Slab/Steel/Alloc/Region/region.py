@@ -120,17 +120,17 @@ class Region:
             Region.set("GlobalID",self.GlobalID)
         if self.IntervalCount is not None:
             IntervalCount = ET.SubElement(Region,"IntervalCount")
-            IntervalCount.text = str(self.IntervalCount)
+            IntervalCount.text = str(int(self.IntervalCount))
         if self.Pitch is not None:
             Pitch = ET.SubElement(Region,"Pitch")
-            Pitch.text = str(self.Pitch)
+            Pitch.text = str(float(self.Pitch))
         if self.IncludeBegin is not None:
             IncludeBegin = ET.SubElement(Region,"IncludeBegin")
-            IncludeBegin.text = str(self.IncludeBegin)
+            IncludeBegin.text = str(bool(self.IncludeBegin)).lower()
         if self.IncludeEnd is not None:
             IncludeEnd = ET.SubElement(Region,"IncludeEnd")
-            IncludeEnd.text = str(self.IncludeEnd)
+            IncludeEnd.text = str(bool(self.IncludeEnd)).lower()
         if self.RefIndex is not None:
             RefIndex = ET.SubElement(Region,"RefIndex")
-            RefIndex.text = str(self.RefIndex)
+            RefIndex.text = str(int(self.RefIndex))
         return Region

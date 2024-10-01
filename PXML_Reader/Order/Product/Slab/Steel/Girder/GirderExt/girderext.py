@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from lib2to3.pgen2.tokenize import double3prog
 
 
 class GirderExt:
@@ -143,20 +144,20 @@ class GirderExt:
             GirderExt.set('Type', self.Type)
         if self.Position is not None:
             Position = ET.SubElement(GirderExt, 'Position')
-            Position.text = str(self.Position)
+            Position.text = str(float(self.Position))
         if self.Flags is not None:
             Flags = ET.SubElement(GirderExt, 'Flags')
-            Flags.text = str(self.Flags)
+            Flags.text = str(int(self.Flags))
         if self.Val0 is not None:
             Val0 = ET.SubElement(GirderExt, 'Val0')
-            Val0.text = str(self.Val0)
+            Val0.text = str(float(self.Val0))
         if self.Val1 is not None:
             Val1 = ET.SubElement(GirderExt, 'Val1')
-            Val1.text = str(self.Val1)
+            Val1.text = str(float(self.Val1))
         if self.Val2 is not None:
             Val2 = ET.SubElement(GirderExt, 'Val2')
-            Val2.text = str(self.Val2)
+            Val2.text = str(float(self.Val2))
         if self.Val3 is not None:
             Val3 = ET.SubElement(GirderExt, 'Val3')
-            Val3.text = str(self.Val3)
+            Val3.text = str(float(self.Val3))
         return GirderExt

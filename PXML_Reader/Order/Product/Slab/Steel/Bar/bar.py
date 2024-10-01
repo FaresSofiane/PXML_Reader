@@ -276,31 +276,31 @@ class Bar:
             SteelQuality.text = str(self.SteelQuality)
         if self.PieceCount is not None:
             PieceCount = ET.SubElement(bar,"PieceCount")
-            PieceCount.text = str(self.PieceCount)
+            PieceCount.text = str(int(self.PieceCount))
         if self.Diameter is not None:
             Diameter = ET.SubElement(bar,"Diameter")
-            Diameter.text = str(self.Diameter)
+            Diameter.text = str(float(self.Diameter))
         if self.X is not None:
-            X = ET.SubElement(bar,"X")
-            X.text = str(self.X)
+            X = ET.SubElement(bar, "X")
+            X.text = str(float(self.X))
         if self.Y is not None:
-            Y = ET.SubElement(bar,"Y")
-            Y.text = str(self.Y)
+            Y = ET.SubElement(bar, "Y")
+            Y.text = str(float(self.Y))
         if self.Z is not None:
-            Z = ET.SubElement(bar,"Z")
-            Z.text = str(self.Z)
+            Z = ET.SubElement(bar, "Z")
+            Z.text = str(float(self.Z))
         if self.RotZ is not None:
             RotZ = ET.SubElement(bar,"RotZ")
-            RotZ.text = str(self.RotZ)
+            RotZ.text = str(float(self.RotZ))
         if self.ArticleNo is not None:
             ArticleNo = ET.SubElement(bar,"ArticleNo")
             ArticleNo.text = str(self.ArticleNo)
         if self.NoAutoProd is not None:
             NoAutoProd = ET.SubElement(bar,"NoAutoProd")
-            NoAutoProd.text = str(self.NoAutoProd)
+            NoAutoProd.text = str(float(self.NoAutoProd)).lower()
         if self.ExtIronWeight is not None:
             ExtIronWeight = ET.SubElement(bar,"ExtIronWeight")
-            ExtIronWeight.text = str(self.ExtIronWeight)
+            ExtIronWeight.text = str(float(self.ExtIronWeight))
         if self.Bin is not None:
             Bin = ET.SubElement(bar,"Bin")
             Bin.text = str(self.Bin)

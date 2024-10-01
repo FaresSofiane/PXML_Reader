@@ -62,7 +62,7 @@ class Alloc:
             Alloc.set('Type', self.Type)
         if self.GuildingBar is not None:
             GuildingBar = ET.SubElement(Alloc, 'GuildingBar')
-            GuildingBar.text = str(self.GuildingBar)
+            GuildingBar.text = str(int(self.GuildingBar))
         for Region in self.Region:
             Alloc.append(Region.__xml__())
         return Alloc

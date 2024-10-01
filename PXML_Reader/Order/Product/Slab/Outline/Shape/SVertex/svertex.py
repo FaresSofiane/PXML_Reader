@@ -1,4 +1,6 @@
 import xml.etree.ElementTree as ET
+from lib2to3.pgen2.tokenize import double3prog
+
 
 class SVertex():
 
@@ -125,13 +127,13 @@ class SVertex():
             SVertex.set("GlobalID",self.GlobalID)
         if self.X is not None:
             X = ET.SubElement(SVertex,"X")
-            X.text = str(self.X)
+            X.text = str(float(self.X))
         if self.Y is not None:
             Y = ET.SubElement(SVertex,"Y")
-            Y.text = str(self.Y)
+            Y.text = str(float(self.Y))
         if self.Bulge is not None:
             Bulge = ET.SubElement(SVertex,"Bulge")
-            Bulge.text = str(self.Bulge)
+            Bulge.text = str(float(self.Bulge))
         if self.LineAttribute is not None:
             LineAttribute = ET.SubElement(SVertex,"LineAttribute")
             LineAttribute.text = str(self.LineAttribute)
@@ -140,8 +142,8 @@ class SVertex():
             Profile.text = str(self.Profile)
         if self.DX is not None:
             DX = ET.SubElement(SVertex,"DX")
-            DX.text = str(self.DX)
+            DX.text = str(float(self.DX))
         if self.DY is not None:
             DY = ET.SubElement(SVertex,"DY")
-            DY.text = str(self.DY)
+            DY.text = str(float(self.DY))
         return SVertex

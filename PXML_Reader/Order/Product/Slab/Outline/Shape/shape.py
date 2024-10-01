@@ -76,10 +76,10 @@ class Shape():
             shape.set("GlobalID",self.GlobalID)
         if self.Cutout is not None:
             Cutout = ET.SubElement(shape,"Cutout")
-            Cutout.text = str(self.Cutout)
+            Cutout.text = str(self.Cutout).lower()
         if self.RefHeight is not None:
             RefHeight = ET.SubElement(shape,"RefHeight")
-            RefHeight.text = str(self.RefHeight)
+            RefHeight.text = str(float(self.RefHeight))
         for svertex in self.SVertex:
             shape.append(svertex.__xml__())
         return shape

@@ -442,29 +442,29 @@ class Steel:
         if self.Type is not None:
             Steel.set("Type",self.Type)
         if self.X is not None:
-            X = ET.SubElement(Steel,"X")
-            X.text = str(self.X)
+            X = ET.SubElement(Steel, "X")
+            X.text = str(float(self.X))
         if self.Y is not None:
-            Y = ET.SubElement(Steel,"Y")
-            Y.text = str(self.Y)
+            Y = ET.SubElement(Steel, "Y")
+            Y.text = str(float(self.Y))
         if self.Z is not None:
-            Z = ET.SubElement(Steel,"Z")
-            Z.text = str(self.Z)
+            Z = ET.SubElement(Steel, "Z")
+            Z.text = str(float(self.Z))
         if self.RotX is not None:
-            RotX = ET.SubElement(Steel,"RotX")
-            RotX.text = str(self.RotX)
+            RotX = ET.SubElement(Steel, "RotX")
+            RotX.text = str(float(self.RotX))
         if self.RotY is not None:
-            RotY = ET.SubElement(Steel,"RotY")
-            RotY.text = str(self.RotY)
+            RotY = ET.SubElement(Steel, "RotY")
+            RotY.text = str(float(self.RotY))
         if self.RotZ is not None:
-            RotZ = ET.SubElement(Steel,"RotZ")
-            RotZ.text = str(self.RotZ)
+            RotZ = ET.SubElement(Steel, "RotZ")
+            RotZ.text = str(float(self.RotZ))
         if self.ToTurn is not None:
             ToTurn = ET.SubElement(Steel,"ToTurn")
-            ToTurn.text = str(self.ToTurn)
+            ToTurn.text = str(bool(self.ToTurn)).lower()
         if self.StopOnTurningSide is not None:
             StopOnTurningSide = ET.SubElement(Steel,"StopOnTurningSide")
-            StopOnTurningSide.text = str(self.StopOnTurningSide)
+            StopOnTurningSide.text = str(float(self.StopOnTurningSide)).lower()
         if self.Name is not None:
             Name = ET.SubElement(Steel,"Name")
             Name.text = str(self.Name)
@@ -491,28 +491,28 @@ class Steel:
             MeshType.text = str(self.MeshType)
         if self.WeldingDensity is not None:
             WeldingDensity = ET.SubElement(Steel,"WeldingDensity")
-            WeldingDensity.text = str(self.WeldingDensity)
+            WeldingDensity.text = str(int(self.WeldingDensity))
         if self.BorderStrength is not None:
             BorderStrength = ET.SubElement(Steel,"BorderStrength")
-            BorderStrength.text = str(self.BorderStrength)
+            BorderStrength.text = str(int(self.BorderStrength))
         if self.ProdX is not None:
-            ProdX = ET.SubElement(Steel,"ProdX")
-            ProdX.text = str(self.ProdX)
+            ProdX = ET.SubElement(Steel, "ProdX")
+            ProdX.text = str(float(self.ProdX))
         if self.ProdY is not None:
-            ProdY = ET.SubElement(Steel,"ProdY")
-            ProdY.text = str(self.ProdY)
+            ProdY = ET.SubElement(Steel, "ProdY")
+            ProdY.text = str(float(self.ProdY))
         if self.ProdZ is not None:
-            ProdZ = ET.SubElement(Steel,"ProdZ")
-            ProdZ.text = str(self.ProdZ)
+            ProdZ = ET.SubElement(Steel, "ProdZ")
+            ProdZ.text = str(float(self.ProdZ))
         if self.ProdRotX is not None:
-            ProdRotX = ET.SubElement(Steel,"ProdRotX")
-            ProdRotX.text = str(self.ProdRotX)
+            ProdRotX = ET.SubElement(Steel, "ProdRotX")
+            ProdRotX.text = str(float(self.ProdRotX))
         if self.ProdRotY is not None:
-            ProdRotY = ET.SubElement(Steel,"ProdRotY")
-            ProdRotY.text = str(self.ProdRotY)
+            ProdRotY = ET.SubElement(Steel, "ProdRotY")
+            ProdRotY.text = str(float(self.ProdRotY))
         if self.ProdRotZ is not None:
-            ProdRotZ = ET.SubElement(Steel,"ProdRotZ")
-            ProdRotZ.text = str(self.ProdRotZ)
+            ProdRotZ = ET.SubElement(Steel, "ProdRotZ")
+            ProdRotZ.text = str(float(self.ProdRotZ))
         if self.Layer is not None:
             Layer = ET.SubElement(Steel,"Layer")
             Layer.text = str(self.Layer)

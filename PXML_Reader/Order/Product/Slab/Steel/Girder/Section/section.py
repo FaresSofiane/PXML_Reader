@@ -74,11 +74,11 @@ class Section:
         Section.set('GlobalID', self.GlobalID)
         if self.L is not None:
             L = ET.SubElement(Section, "L")
-            L.text = str(self.L)
+            L.text = str(float(self.L))
         if self.S is not None:
             S = ET.SubElement(Section, "S")
-            S.text = str(self.S)
+            S.text = str(float(self.S))
         if self.F is not None:
             F = ET.SubElement(Section, "F")
-            F.text = str(self.F)
+            F.text = str(float(self.F))
         return Section

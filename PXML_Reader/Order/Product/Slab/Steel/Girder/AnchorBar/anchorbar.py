@@ -74,11 +74,11 @@ class AnchorBar():
             AnchorBar.set('GlobalID', self.GlobalID)
         if self.Type is not None:
             Type = ET.SubElement(AnchorBar, 'Type')
-            Type.text = str(self.Type)
+            Type.text = str(int(self.Type))
         if self.Length is not None:
             Length = ET.SubElement(AnchorBar, 'Length')
-            Length.text = str(self.Length)
+            Length.text = str(float(self.Length))
         if self.Position is not None:
             Position = ET.SubElement(AnchorBar, 'Position')
-            Position.text = str(self.Position)
+            Position.text = str(float(self.Position))
 

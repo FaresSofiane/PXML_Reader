@@ -101,16 +101,16 @@ class WeldingPoint():
             WeldingPoint.set('GlobalId', self.GlobalId)
         if self.WeldingOutput is not None:
             WeldingOutput = ET.SubElement(WeldingPoint, 'WeldingOutput')
-            WeldingOutput.text = str(self.WeldingOutput)
+            WeldingOutput.text = str(float(self.WeldingOutput))
         if self.Position is not None:
             Position = ET.SubElement(WeldingPoint, 'Position')
-            Position.text = str(self.Position)
+            Position.text = str(float(self.Position))
         if self.WeldingPointType is not None:
             WeldingPointType = ET.SubElement(WeldingPoint, 'WeldingPointType')
-            WeldingPointType.text = str(self.WeldingPointType)
+            WeldingPointType.text = str(int(self.WeldingPointType))
         if self.WeldingPrgNo is not None:
             WeldingPrgNo = ET.SubElement(WeldingPoint, 'WeldingPrgNo')
-            WeldingPrgNo.text = str(self.WeldingPrgNo)
+            WeldingPrgNo.text = str(int(self.WeldingPrgNo))
         if self.GroupID is not None:
             GroupID = ET.SubElement(WeldingPoint, 'GroupID')
             GroupID.text = str(self.GroupID)

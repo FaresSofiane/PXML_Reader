@@ -589,7 +589,7 @@ class Order():
             Comment.text = str(self.Comment)
         if self.OrderArea is not None:
             OrderArea = ET.SubElement(Order, "OrderArea")
-            OrderArea.text = str(self.OrderArea)
+            OrderArea.text = str(float(self.OrderArea))
         if self.ImportSource is not None:
             ImportSource = ET.SubElement(Order, "ImportSource")
             ImportSource.text = str(self.ImportSource)

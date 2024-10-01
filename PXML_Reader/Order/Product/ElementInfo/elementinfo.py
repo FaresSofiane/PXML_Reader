@@ -140,7 +140,7 @@ class ElementInfo():
     def __xml__(self):
         ElementInfo = ET.Element("ElementInfo")
         ElementInfo.set("Type", self.Type)
-        ElementInfo.set("Inventory", str(self.Inventory))
+        ElementInfo.set("Inventory", str(bool(self.Inventory)).lower())
         ElementInfo.set("GlobalID", self.GlobalID)
 
         if self.Code is not None:
@@ -154,13 +154,13 @@ class ElementInfo():
             ObjectID.text = self.ObjectID
         if self.PieceCount is not None:
             PieceCount = ET.SubElement(ElementInfo, "PieceCount")
-            PieceCount.text = str(self.PieceCount)
+            PieceCount.text = str(int(self.PieceCount))
         if self.Val1 is not None:
             Val1 = ET.SubElement(ElementInfo, "Val1")
-            Val1.text = str(self.Val1)
+            Val1.text = str(float(self.Val1))
         if self.Val2 is not None:
             Val2 = ET.SubElement(ElementInfo, "Val2")
-            Val2.text = str(self.Val2)
+            Val2.text = str(float(self.Val2))
         if self.Unit is not None:
             Unit = ET.SubElement(ElementInfo, "Unit")
             Unit.text = self.Unit

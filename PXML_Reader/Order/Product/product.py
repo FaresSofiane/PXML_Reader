@@ -1,4 +1,6 @@
 import xml.etree.ElementTree as ET
+from lib2to3.pgen2.tokenize import double3prog
+
 
 class Product():
 
@@ -532,22 +534,22 @@ class Product():
             ProductType.text = str(self.ProductType)
         if self.TotalThickness is not None:
             TotalThickness = ET.SubElement(Product, "TotalThickness")
-            TotalThickness.text = str(self.TotalThickness)
+            TotalThickness.text = str(float(self.TotalThickness))
         if self.DoubleWallsGap is not None:
             DoubleWallsGap = ET.SubElement(Product, "DoubleWallsGap")
-            DoubleWallsGap.text = str(self.DoubleWallsGap)
+            DoubleWallsGap.text = str(float(self.DoubleWallsGap))
         if self.PieceCount is not None:
             PieceCount = ET.SubElement(Product, "PieceCount")
-            PieceCount.text = str(self.PieceCount)
+            PieceCount.text = str(int(self.PieceCount))
         if self.TurnWidth is not None:
             TurnWidth = ET.SubElement(Product, "TurnWidth")
-            TurnWidth.text = str(self.TurnWidth)
+            TurnWidth.text = str(float(self.TurnWidth))
         if self.Comment is not None:
             Comment = ET.SubElement(Product, "Comment")
             Comment.text = self.Comment
         if self.RotationPosition is not None:
             RotationPosition = ET.SubElement(Product, "RotationPosition")
-            RotationPosition.text = str(self.RotationPosition)
+            RotationPosition.text = str(float(self.RotationPosition))
         if self.StackNo is not None:
             StackNo = ET.SubElement(Product, "StackNo")
             StackNo.text = str(self.StackNo)
@@ -562,49 +564,49 @@ class Product():
             StackingLevel.text = str(self.StackingLevel)
         if self.StackingX is not None:
             StackingX = ET.SubElement(Product, "StackingX")
-            StackingX.text = str(self.StackingX)
+            StackingX.text = str(float(self.StackingX))
         if self.StackingY is not None:
             StackingY = ET.SubElement(Product, "StackingY")
-            StackingY.text = str(self.StackingY)
+            StackingY.text = str(float(self.StackingY))
         if self.StackingZ is not None:
             StackingZ = ET.SubElement(Product, "StackingZ")
-            StackingZ.text = str(self.StackingZ)
+            StackingZ.text = str(float(self.StackingZ))
         if self.StackingAngle is not None:
             StackingAngle = ET.SubElement(Product, "StackingAngle")
-            StackingAngle.text = str(self.StackingAngle)
+            StackingAngle.text = str(float(self.StackingAngle))
         if self.StackingRotY is not None:
             StackingRotY = ET.SubElement(Product, "StackingRotY")
-            StackingRotY.text = str(self.StackingRotY)
+            StackingRotY.text = str(float(self.StackingRotY))
         if self.StackingRotX is not None:
             StackingRotX = ET.SubElement(Product, "StackingRotX")
-            StackingRotX.text = str(self.StackingRotX)
+            StackingRotX.text = str(float(self.StackingRotX))
         if self.P1X is not None:
             P1X = ET.SubElement(Product, "P1X")
-            P1X.text = str(self.P1X)
+            P1X.text = str(float(self.P1X))
         if self.P1Y is not None:
             P1Y = ET.SubElement(Product, "P1Y")
-            P1Y.text = str(self.P1Y)
+            P1Y.text = str(float(self.P1Y))
         if self.P1Z is not None:
             P1Z = ET.SubElement(Product, "P1Z")
-            P1Z.text = str(self.P1Z)
+            P1Z.text = str(float(self.P1Z))
         if self.P2X is not None:
             P2X = ET.SubElement(Product, "P2X")
-            P2X.text = str(self.P2X)
+            P2X.text = str(float(self.P2X))
         if self.P2Y is not None:
             P2Y = ET.SubElement(Product, "P2Y")
-            P2Y.text = str(self.P2Y)
+            P2Y.text = str(float(self.P2Y))
         if self.P2Z is not None:
             P2Z = ET.SubElement(Product, "P2Z")
-            P2Z.text = str(self.P2Z)
+            P2Z.text = str(float(self.P2Z))
         if self.P3X is not None:
             P3X = ET.SubElement(Product, "P3X")
-            P3X.text = str(self.P3X)
+            P3X.text = str(float(self.P3X))
         if self.P3Y is not None:
             P3Y = ET.SubElement(Product, "P3Y")
-            P3Y.text = str(self.P3Y)
+            P3Y.text = str(float(self.P3Y))
         if self.P3Z is not None:
             P3Z = ET.SubElement(Product, "P3Z")
-            P3Z.text = str(self.P3Z)
+            P3Z.text = str(float(self.P3Z))
         if self.AdditionInfo is not None:
             AdditionInfo = ET.SubElement(Product, "AdditionInfo")
             AdditionInfo.text = self.AdditionInfo

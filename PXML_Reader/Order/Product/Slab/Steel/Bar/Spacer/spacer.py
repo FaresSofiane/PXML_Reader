@@ -58,8 +58,8 @@ class Spacer():
             Spacer.set('GlobalID', self.GlobalID)
         if self.Type is not None:
             Type = ET.SubElement(Spacer, 'Type')
-            Type.text = str(self.Type)
+            Type.text = str(int(self.Type))
         if self.Position is not None:
             Spacer = ET.SubElement(Spacer, 'Position')
-            Spacer.text = str(self.Position)
+            Spacer.text = str(float(self.Position))
         return Spacer

@@ -76,7 +76,6 @@ class Slab():
         self.PileLevel = PileLevel
         self.TypeOfUnloading = TypeOfUnloading
         self.MeansOfTransport = MeansOfTransport
-        print("MeansOfTransport",MeansOfTransport)
         self.ExpositionClass = ExpositionClass
         if type(SlabArea) is float:
             self.SlabArea = float(SlabArea)
@@ -676,67 +675,67 @@ class Slab():
             ExpositionClass.text = self.ExpositionClass
         if self.SlabArea is not None:
             SlabArea = ET.SubElement(Slab, "SlabArea")
-            SlabArea.text = str(self.SlabArea)
+            SlabArea.text = str(float(self.SlabArea))
         if self.SlabWeight is not None:
             SlabWeight = ET.SubElement(Slab, "SlabWeight")
-            SlabWeight.text = str(self.SlabWeight)
+            SlabWeight.text = str(float(self.SlabWeight))
         if self.ProductionThickness is not None:
             ProductionThickness = ET.SubElement(Slab, "ProductionThickness")
-            ProductionThickness.text = str(self.ProductionThickness)
+            ProductionThickness.text = str(float(self.ProductionThickness))
         if self.MaxLength is not None:
             MaxLength = ET.SubElement(Slab, "MaxLength")
-            MaxLength.text = str(self.MaxLength)
+            MaxLength.text = str(float(self.MaxLength))
         if self.MaxWidth is not None:
             MaxWidth = ET.SubElement(Slab, "MaxWidth")
-            MaxWidth.text = str(self.MaxWidth)
+            MaxWidth.text = str(float(self.MaxWidth))
         if self.IronProjectionLeft is not None:
             IronProjectionLeft = ET.SubElement(Slab, "IronProjectionLeft")
-            IronProjectionLeft.text = str(self.IronProjectionLeft)
+            IronProjectionLeft.text = str(float(self.IronProjectionLeft))
         if self.IronProjectionRight is not None:
             IronProjectionRight = ET.SubElement(Slab, "IronProjectionRight")
-            IronProjectionRight.text = str(self.IronProjectionRight)
+            IronProjectionRight.text = str(float(self.IronProjectionRight))
         if self.IronProjectionBottom is not None:
             IronProjectionBottom = ET.SubElement(Slab, "IronProjectionBottom")
-            IronProjectionBottom.text = str(self.IronProjectionBottom)
+            IronProjectionBottom.text = str(float(self.IronProjectionBottom))
         if self.IronProjectionTop is not None:
             IronProjectionTop = ET.SubElement(Slab, "IronProjectionTop")
-            IronProjectionTop.text = str(self.IronProjectionTop)
+            IronProjectionTop.text = str(float(self.IronProjectionTop))
         if self.X is not None:
             X = ET.SubElement(Slab, "X")
-            X.text = str(self.X)
+            X.text = str(float(self.X))
         if self.Y is not None:
             Y = ET.SubElement(Slab, "Y")
-            Y.text = str(self.Y)
+            Y.text = str(float(self.Y))
         if self.Z is not None:
             Z = ET.SubElement(Slab, "Z")
-            Z.text = str(self.Z)
+            Z.text = str(float(self.Z))
         if self.RotX is not None:
             RotX = ET.SubElement(Slab, "RotX")
-            RotX.text = str(self.RotX)
+            RotX.text = str(float(self.RotX))
         if self.RotY is not None:
             RotY = ET.SubElement(Slab, "RotY")
-            RotY.text = str(self.RotY)
+            RotY.text = str(float(self.RotY))
         if self.RotZ is not None:
             RotZ = ET.SubElement(Slab, "RotZ")
-            RotZ.text = str(self.RotZ)
+            RotZ.text = str(float(self.RotZ))
         if self.ProdX is not None:
             ProdX = ET.SubElement(Slab, "ProdX")
-            ProdX.text = str(self.ProdX)
+            ProdX.text = str(float(self.ProdX))
         if self.ProdY is not None:
             ProdY = ET.SubElement(Slab, "ProdY")
-            ProdY.text = str(self.ProdY)
+            ProdY.text = str(float(self.ProdY))
         if self.ProdZ is not None:
             ProdZ = ET.SubElement(Slab, "ProdZ")
-            ProdZ.text = str(self.ProdZ)
+            ProdZ.text = str(float(self.ProdZ))
         if self.ProdRotX is not None:
             ProdRotX = ET.SubElement(Slab, "ProdRotX")
-            ProdRotX.text = str(self.ProdRotX)
+            ProdRotX.text = str(float(self.ProdRotX))
         if self.ProdRotY is not None:
             ProdRotY = ET.SubElement(Slab, "ProdRotY")
-            ProdRotY.text = str(self.ProdRotY)
+            ProdRotY.text = str(float(self.ProdRotY))
         if self.ProdRotZ is not None:
             ProdRotZ = ET.SubElement(Slab, "ProdRotZ")
-            ProdRotZ.text = str(self.ProdRotZ)
+            ProdRotZ.text = str(float(self.ProdRotZ))
         if self.OrderPosition is not None:
             OrderPosition = ET.SubElement(Slab, "OrderPosition")
             OrderPosition.text = self.OrderPosition
@@ -754,16 +753,16 @@ class Slab():
             ProjectCoordinates.text = self.ProjectCoordinates
         if self.PositionInPileX is not None:
             PositionInPileX = ET.SubElement(Slab, "PositionInPileX")
-            PositionInPileX.text = str(self.PositionInPileX)
+            PositionInPileX.text = str(float(self.PositionInPileX))
         if self.PositionInPileY is not None:
             PositionInPileY = ET.SubElement(Slab, "PositionInPileY")
-            PositionInPileY.text = str(self.PositionInPileY)
+            PositionInPileY.text = str(float(self.PositionInPileY))
         if self.PositionInPileZ is not None:
             PositionInPileZ = ET.SubElement(Slab, "PositionInPileZ")
-            PositionInPileZ.text = str(self.PositionInPileZ)
+            PositionInPileZ.text = str(float(self.PositionInPileZ))
         if self.AngleInPile is not None:
             AngleInPile = ET.SubElement(Slab, "AngleInPile")
-            AngleInPile.text = str(self.AngleInPile)
+            AngleInPile.text = str(float(self.AngleInPile))
         if self.GenericInfo01 is not None:
             GenericInfo01 = ET.SubElement(Slab, "GenericInfo01")
             GenericInfo01.text = self.GenericInfo01
