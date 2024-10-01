@@ -795,4 +795,4 @@ class pxml:
 
         xml_str = ET.tostring(PXML)
 
-        return pretty_print_xml_elementtree(xml_str).replace("ns0:", "").replace(":ns0", "")
+        return pretty_print_xml_elementtree(xml_str).replace("ns0:", "").replace(":ns0", "").replace("cp1252", "utf-8")
