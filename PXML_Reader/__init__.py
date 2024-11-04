@@ -109,6 +109,13 @@ class pxml:
                                 V=(d.find(ns + "V").text if d.find(ns + "V") is not None else None),
                             ))
 
+                        print(c.findall(ns + "ElemInfoVal"))
+                        for d in c.findall(ns + "ElemInfoVal"):
+                            temp_ElementInfoVal.append(eleminfoval.ElemInfoVal(
+                                Type=(d.get("Type") if d.get("Type") is not None else None),
+                                V=(d.get("V") if d.get("V") is not None else None),
+                            ))
+
                         temp_ElementInfo.append(elementinfo.ElementInfo(
                             Type=(c.find(ns + "Type").text if c.find(ns + "Type") is not None else None),
                             Inventory=(c.find(ns + "Inventory").text if c.find(ns + "Inventory") is not None else None),

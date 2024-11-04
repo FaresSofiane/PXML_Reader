@@ -138,10 +138,14 @@ class ElementInfo():
         return "Type: " + str(self.Type) + ", Inventory: " + str(self.Inventory) + ", GlobalID: " + str(self.GlobalID) + ", Code: " + str(self.Code) + ", Description: " + str(self.Description) + ", ObjectID: " + str(self.ObjectID) + ", PieceCount: " + str(self.PieceCount) + ", Val1: " + str(self.Val1) + ", Val2: " + str(self.Val2) + ", Unit: " + str(self.Unit) + ", Details: " + str(self.Details) + ", ElementInfoVal: " + str(self.ElementInfoVal)
 
     def __xml__(self):
+        print("ElementInfo", self.__str__())
         ElementInfo = ET.Element("ElementInfo")
-        ElementInfo.set("Type", self.Type)
-        ElementInfo.set("Inventory", str(bool(self.Inventory)).lower())
-        ElementInfo.set("GlobalID", self.GlobalID)
+        if self.Type is not None:
+            ElementInfo.set("Type", self.Type)
+        if self.Inventory is not None:
+            ElementInfo.set("Inventory", str(bool(self.Inventory)).lower())
+        if self.GlobalID is not None:
+            ElementInfo.set("GlobalID", self.GlobalID)
 
         if self.Code is not None:
             Code = ET.SubElement(ElementInfo, "Code")
